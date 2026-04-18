@@ -539,14 +539,14 @@
 
 ```mermaid
 graph TD
-    subgraph S1["Step 1: Contract, Data - SSOT"]
+    subgraph S1 [Step 1: Contract, Data - SSOT]
         A["A: Infra (6)"]
         B["B: Schema (10)"]
         C["C: API DTO (10)"]
         D["D: Mock (7)"]
     end
 
-    subgraph S2["Step 2: Logic - CQRS"]
+    subgraph S2 [Step 2: Logic - CQRS]
         E["E: Auth (3)"]
         F["F: File (7)"]
         G["G: OCR (4)"]
@@ -561,17 +561,17 @@ graph TD
         P["P: Pipeline (1)"]
     end
 
-    subgraph S3["Step 3: Test"]
+    subgraph S3 [Step 3: Test]
         T["T: Test (23)"]
     end
 
-    subgraph S4["Step 4: NFR, Deploy"]
+    subgraph S4 [Step 4: NFR, Deploy]
         S["S: Security (3)"]
         U["U: Monitor (6)"]
         V["V: Deploy (3)"]
     end
 
-    subgraph S5["Step 5: UI/UX"]
+    subgraph S5 [Step 5: UI/UX]
         UI["UI: Frontend (13)"]
     end
 
