@@ -539,40 +539,40 @@
 
 ```mermaid
 graph TD
-    subgraph S1["Step 1: Contract, Data - SSOT"]
-        A["A: Infra (6)"]
-        B["B: Schema (10)"]
-        C["C: API DTO (10)"]
-        D["D: Mock (7)"]
+    subgraph S1 [1단계: API 계약 및 데이터 명세]
+        A["A: 인프라 (6)"]
+        B["B: DB 스키마 (10)"]
+        C["C: API 규격 (10)"]
+        D["D: 외부 API 및 목업 (7)"]
     end
 
-    subgraph S2["Step 2: Logic - CQRS"]
-        E["E: Auth (3)"]
-        F["F: File (7)"]
-        G["G: OCR (4)"]
-        H["H: Naming (3)"]
-        I["I: Triple Check (5)"]
-        J["J: Audit (4)"]
-        K["K: HITL (5)"]
-        L["L: Notify (6)"]
-        M["M: PDF (3)"]
-        N["N: Excel (3)"]
-        O["O: Stats (1)"]
-        P["P: Pipeline (1)"]
+    subgraph S2 [2단계: 비즈니스 로직 - 상태 변경 및 조회 분리]
+        E["E: 인증 및 권한 (3)"]
+        F["F: 파일 업로드 및 변환 (7)"]
+        G["G: OCR 추출 엔진 (4)"]
+        H["H: 파일 자동 명명 (3)"]
+        I["I: 3중 대조 검증 (5)"]
+        J["J: 감사 추적 로그 (4)"]
+        K["K: 수동 검수 및 승인 (5)"]
+        L["L: 불일치 알림 발송 (6)"]
+        M["M: PDF 리포트 생성 (3)"]
+        N["N: 엑셀 내보내기 (3)"]
+        O["O: 통계 대시보드 (1)"]
+        P["P: 통합 파이프라인 (1)"]
     end
 
-    subgraph S3["Step 3: Test"]
-        T["T: Test (23)"]
+    subgraph S3 [3단계: 테스트 자동화]
+        T["T: 전체 테스트 (23)"]
     end
 
-    subgraph S4["Step 4: NFR, Deploy"]
-        S["S: Security (3)"]
-        U["U: Monitor (6)"]
-        V["V: Deploy (3)"]
+    subgraph S4 [4단계: 비기능적 요구사항 및 배포]
+        S["S: 보안 및 암호화 (3)"]
+        U["U: 성능 모니터링 (6)"]
+        V["V: 서버 인프라 배포 (3)"]
     end
 
-    subgraph S5["Step 5: UI/UX"]
-        UI["UI: Frontend (13)"]
+    subgraph S5 [5단계: 프론트엔드 UI/UX]
+        UI["UI: 화면 조립 (13)"]
     end
 
     A --> B
