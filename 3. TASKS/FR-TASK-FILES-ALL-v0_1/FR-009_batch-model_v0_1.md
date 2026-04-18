@@ -13,7 +13,7 @@ source_task_id: B-003
 - **기능명:** [FR-009] Batch 모델 정의
 - **Epic:** DB Schema
 - **목적:** 채용 회차(공채 1차, 2차 등) 정보를 관리할 **Batch 모델**을 정의한다. 한 Batch에 여러 Applicant(지원자)가 소속되며, Batch 단위로 PDF/엑셀 리포트를 생성한다.
-- **설계 원칙:** SRS §3.8 (L535~548) Batch 모델. User → Batch 1:N 관계 (created_by FK).
+- **설계 원칙:** SRS §3.8 (L535 ~ 548) Batch 모델. User → Batch 1:N 관계 (created_by FK).
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — Batch`](../SRS-HR-AI-Verification-v1.1.md)

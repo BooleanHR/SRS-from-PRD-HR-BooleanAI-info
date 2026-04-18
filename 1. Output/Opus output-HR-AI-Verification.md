@@ -17,10 +17,10 @@
 
 | 문제 항목 | 실패 KPI (기준선) |
 |---|---|
-| 수기 검증 비용 과다 | 4,000건 공채 기준 인건비 900~1,000만원 / 운영 수익률 1% 이하 |
+| 수기 검증 비용 과다 | 4,000건 공채 기준 인건비 900 ~ 1,000만원 / 운영 수익률 1% 이하 |
 | 허위 기재 미검출 | 구직자 약 20%가 허위 사실 기재 / 연간 공공기관 채용 비위 적발 832건 |
 | 감사 대응 증빙 부재 | 수기 확인 기반 감사 시 객관적 로그 제출 불가 / 34건 이상 징계·수사 |
-| 민원 전화 폭주 | 서류 미비 대응 민원 전화가 담당자 업무의 70~90% 점유 |
+| 민원 전화 폭주 | 서류 미비 대응 민원 전화가 담당자 업무의 70 ~ 90% 점유 |
 | 저화질 OCR 실패 | 모바일 폰카 이미지 등 저품질 서류의 OCR 신뢰도 저하로 재수동 검증 발생 |
 
 본 SRS는 OCR 추출, 공공 API/RPA 기관 조회, Triple Check Loop(3중 대조 검증), 병렬 캡처 Audit Trail, 감사 리포트 자동 생성 등을 포함하는 AI 기반 서류 진위확인 솔루션의 기능적·비기능적 요구사항을 정의한다.
@@ -126,7 +126,7 @@
 | REF-05 | 채용절차의 공정화에 관한 법률 | 감사 로그 보존 5년 기준 근거 |
 | REF-06 | 국가인권위원회 채용 실태 조사 | 구직자 20% 허위 기재 근거 |
 | REF-07 | JTBD 심층 인터뷰 결과 노션 정리 문서 (n=10) | 정성적 근거 (예정) |
-| REF-08 | 채용 대행사 파트너 3곳 실사 자료 | 인건비 900~1,000만원/4,000건 근거 |
+| REF-08 | 채용 대행사 파트너 3곳 실사 자료 | 인건비 900 ~ 1,000만원/4,000건 근거 |
 | REF-09 | PoC 파트너사 ROI 측정 결과 보고서 | Phase 1 완료 후 (예정) |
 
 ---
@@ -294,7 +294,7 @@ sequenceDiagram
 |---|---|---|---|---|
 | REQ-FUNC-001 | 시스템은 PDF, JPG, PNG 형식의 서류 파일을 입력으로 수신하여 OCR 처리를 수행해야 한다. | Story-2, F1(M1) | Must | **Given** 지원자가 PDF/JPG/PNG 형식의 학위증명서, 자격증, 경력증명서를 업로드한 상태에서 **When** 시스템이 파일을 수신하면 **Then** OCR 엔진이 해당 파일을 처리 대상으로 등록하고 처리를 시작해야 한다. |
 | REQ-FUNC-002 | OCR 엔진은 입력 이미지로부터 구조화된 필드(성명, 생년월일, 발급번호, 발급일자, 기관명 등)를 JSON 형식으로 추출해야 한다. | Story-2, F1(M1) | Must | **Given** OCR 엔진이 서류 이미지를 수신한 상태에서 **When** OCR 처리가 완료되면 **Then** 추출 결과가 JSON 형식(필드명, 필드값 쌍)으로 반환되어야 한다. |
-| REQ-FUNC-003 | OCR 엔진은 각 추출 필드에 대해 0~100 범위의 신뢰도 점수(confidence_score)를 산출하여 반환해야 한다. | Story-2, F1(M1) | Must | **Given** OCR 추출이 완료된 상태에서 **When** 결과 JSON이 생성되면 **Then** 각 필드에 ocr_confidence_score (0~100)가 포함되어야 한다. |
+| REQ-FUNC-003 | OCR 엔진은 각 추출 필드에 대해 0 ~ 100 범위의 신뢰도 점수(confidence_score)를 산출하여 반환해야 한다. | Story-2, F1(M1) | Must | **Given** OCR 추출이 완료된 상태에서 **When** 결과 JSON이 생성되면 **Then** 각 필드에 ocr_confidence_score (0 ~ 100)가 포함되어야 한다. |
 | REQ-FUNC-004 | OCR 전체 신뢰도 점수가 80 미만인 건은 자동으로 수동 확인 큐(MANUAL_REVIEW)로 이관되어야 한다. | Story-2, F1(M1) | Must | **Given** OCR 처리 결과의 전체 신뢰도 점수가 80 미만인 상태에서 **When** 검증 엔진이 결과를 평가하면 **Then** 해당 건의 상태가 'MANUAL_REVIEW'로 설정되고 수동 확인 큐에 등록되어야 한다. |
 
 #### 4.1.2 F2 — 공공 API/RPA 기관 실시간 조회 (M2)
@@ -327,7 +327,7 @@ sequenceDiagram
 | REQ-FUNC-018 | 시스템은 지원자 입력값, OCR 추출값, 발급기관 API/RPA 조회값의 3중 대조(Triple Check Loop)를 순차 실행해야 한다. | Story-2 AC-1, F4(M4) | Must | **Given** 지원자가 서류를 업로드한 상태에서 **When** Triple Check Loop가 실행되면 **Then** 입력값 → OCR 추출값 → 발급기관 API/RPA 조회값 순으로 3개 레이어가 순차적으로 실행되어야 한다. |
 | REQ-FUNC-019 | 3개 레이어 모두 일치 시 결과를 '정상(PASS)'으로, 1개 이상 불일치 시 '불일치(FAIL)' 플래그를 설정하고 상세 불일치 항목을 명시해야 한다. | Story-2 AC-1, F4(M4) | Must | **Given** Triple Check Loop의 3개 레이어가 모두 실행 완료된 상태에서 **When** 대조 결과를 산출하면 **Then** 모두 일치 시 status='PASS', 1개 이상 불일치 시 status='FAIL' + discrepancy_detail에 불일치 항목이 명시되어야 한다. |
 | REQ-FUNC-020 | 불일치 건의 상세 화면에서 OCR 추출값과 기관 DB 반환값의 차이를 항목별 하이라이트로 시각화해야 한다. | Story-2 AC-3, F4(M4) | Must | **Given** 검증 결과 '불일치' 플래그가 발생한 상태에서 **When** 담당자가 해당 건의 상세 화면을 클릭하면 **Then** OCR 추출값과 기관 DB 반환값의 차이가 항목별로 색상 하이라이트되어 표시되어야 한다. |
-| REQ-FUNC-021 | 불일치 건에 대해 0~100 범위의 불일치 신뢰도 점수(confidence_score)를 산출하여 표시해야 한다. | Story-2 AC-3, F4(M4) | Must | **Given** 검증 결과 '불일치'가 발생한 상태에서 **When** 상세 화면이 로드되면 **Then** 불일치 신뢰도 점수(0~100)가 1초 이내에 표시되어야 한다. |
+| REQ-FUNC-021 | 불일치 건에 대해 0 ~ 100 범위의 불일치 신뢰도 점수(confidence_score)를 산출하여 표시해야 한다. | Story-2 AC-3, F4(M4) | Must | **Given** 검증 결과 '불일치'가 발생한 상태에서 **When** 상세 화면이 로드되면 **Then** 불일치 신뢰도 점수(0 ~ 100)가 1초 이내에 표시되어야 한다. |
 | REQ-FUNC-022 | 기관 DB 항목의 포맷이 상이한 경우(예: 날짜 형식), 표준 변환을 수행한 후 비교해야 한다. 변환 실패 시 원문을 병기해야 한다. | Story-2 AC-3, F4(M4) | Must | **Given** 기관 DB 반환값의 포맷이 시스템 표준과 상이한 상태에서 **When** 대조를 수행하면 **Then** 표준 변환 후 비교하고, 변환 실패 시 원문과 변환 시도 결과를 병기해야 한다. |
 
 #### 4.1.5 F5 — 감사원 제출용 PDF 리포트 자동 생성 (M5)
@@ -388,7 +388,7 @@ sequenceDiagram
 
 | ID | 요구사항 | Source | Priority | Acceptance Criteria |
 |---|---|---|---|---|
-| REQ-FUNC-047 | 검증 결과를 신뢰도 점수(0~100) 기반으로 시각화(차트/히트맵)하는 대시보드를 제공해야 한다. | F11(C3) | Could | **Given** 검증 완료 건들이 존재하는 상태에서 **When** 담당자가 시각화 대시보드에 접속하면 **Then** 신뢰도 점수 분포 차트, 불일치 유형별 히트맵이 표시되어야 한다. |
+| REQ-FUNC-047 | 검증 결과를 신뢰도 점수(0 ~ 100) 기반으로 시각화(차트/히트맵)하는 대시보드를 제공해야 한다. | F11(C3) | Could | **Given** 검증 완료 건들이 존재하는 상태에서 **When** 담당자가 시각화 대시보드에 접속하면 **Then** 신뢰도 점수 분포 차트, 불일치 유형별 히트맵이 표시되어야 한다. |
 
 ---
 
@@ -399,11 +399,11 @@ sequenceDiagram
 | ID | 요구사항 | 측정 지표 | 목표값 | 측정 방법 | Source |
 |---|---|---|---|---|---|
 | REQ-NF-001 | 단일 서류 검증 E2E 응답 시간 (공공 API 포함) | p95 latency | ≤ 5초 | API 응답 시간 모니터링 (Grafana/CloudWatch) | PRD §5, Story-2 AC-2 |
-| REQ-NF-002 | 감사 PDF 생성 시간 (500건 이하 배치) | p95 latency | ≤ 3초 | PDF 생성 요청~다운로드 완료 시간 측정 | PRD §5, Story-1 AC-2 |
-| REQ-NF-003 | 알림톡 발송 소요 시간 (불일치 감지 후) | max latency | ≤ 3분 | 불일치 확정 시각~알림톡 발송 시각 차이 측정 | PRD §5, Story-3 AC-1 |
+| REQ-NF-002 | 감사 PDF 생성 시간 (500건 이하 배치) | p95 latency | ≤ 3초 | PDF 생성 요청 ~ 다운로드 완료 시간 측정 | PRD §5, Story-1 AC-2 |
+| REQ-NF-003 | 알림톡 발송 소요 시간 (불일치 감지 후) | max latency | ≤ 3분 | 불일치 확정 시각 ~ 알림톡 발송 시각 차이 측정 | PRD §5, Story-3 AC-1 |
 | REQ-NF-004 | 외부 연동 API 응답 시간 (SDK 기준) | p95 latency | ≤ 10초 | API 엔드포인트 응답 시간 측정 | PRD §5, Story-4 AC-1 |
 | REQ-NF-005 | 대량 배치 처리 속도 (병렬 처리) | throughput | ≥ 4,000건/시간 | 배치 완료 로그 기반 시간당 처리 건수 집계 | PRD §5, KPI-1 |
-| REQ-NF-006 | 4,000건 기준 서류 검증 총 처리 시간 | E2E duration | ≤ 60분 | 배치 시작~완료 시간 측정 | PRD §1 목표, Exp-3 |
+| REQ-NF-006 | 4,000건 기준 서류 검증 총 처리 시간 | E2E duration | ≤ 60분 | 배치 시작 ~ 완료 시간 측정 | PRD §1 목표, Exp-3 |
 | REQ-NF-007 | 불일치 신뢰도 점수 표시 응답 시간 | latency | ≤ 1초 | 상세 화면 로드 시간 측정 | Story-2 AC-3 |
 | REQ-NF-008 | 인증 처리 시간 | latency | ≤ 100ms | API Gateway 인증 단계 시간 측정 | Story-4 AC-2 |
 | REQ-NF-009 | Self-Service 처리율 요약 리포트 생성 시간 | latency | ≤ 10초 | 회차 종료 후 리포트 생성 시간 측정 | Story-3 AC-3 |
@@ -420,7 +420,7 @@ sequenceDiagram
 | REQ-NF-015 | 알림톡 발송 성공률 | 발송 성공 건수/전체 건수 | ≥ 99% | 카카오 API 응답 코드 집계 | Story-3 AC-1 |
 | REQ-NF-016 | API 응답 성공률 (공공 API) | 성공 건수/전체 건수 | ≥ 99% | API 응답 코드 집계 | Story-2 AC-2 |
 | REQ-NF-017 | RPO (Recovery Point Objective) | 데이터 손실 허용 범위 | ≤ 1시간 | 백업 주기 확인 | 시스템 설계 기준 |
-| REQ-NF-018 | RTO (Recovery Time Objective) | 서비스 복구 시간 | ≤ 4시간 | 장애 발생~서비스 복구 시간 측정 | 시스템 설계 기준 |
+| REQ-NF-018 | RTO (Recovery Time Objective) | 서비스 복구 시간 | ≤ 4시간 | 장애 발생 ~ 서비스 복구 시간 측정 | 시스템 설계 기준 |
 
 #### 4.2.3 정확도 (Accuracy)
 
@@ -497,9 +497,9 @@ sequenceDiagram
 | Story ID | Story 제목 | Requirement IDs | Test Case IDs |
 |---|---|---|---|
 | Story-1 | Audit Trail 기반 법적 면책권 확보 | REQ-FUNC-012, REQ-FUNC-013, REQ-FUNC-014, REQ-FUNC-015, REQ-FUNC-016, REQ-FUNC-017, REQ-FUNC-023, REQ-FUNC-024, REQ-FUNC-025 | TC-012, TC-013, TC-014, TC-015, TC-016, TC-017, TC-023, TC-024, TC-025 |
-| Story-2 | Triple Check Loop 기반 무오성 검증 | REQ-FUNC-001~004, REQ-FUNC-005~011, REQ-FUNC-018~022, REQ-FUNC-026~028 | TC-001~004, TC-005~011, TC-018~022, TC-026~028 |
-| Story-3 | Self-Service 알림톡 루프 | REQ-FUNC-029~036 | TC-029~036 |
-| Story-4 | API First 플랫폼 연동 | REQ-FUNC-039~044 | TC-039~044 |
+| Story-2 | Triple Check Loop 기반 무오성 검증 | REQ-FUNC-001 ~ 004, REQ-FUNC-005 ~ 011, REQ-FUNC-018 ~ 022, REQ-FUNC-026 ~ 028 | TC-001 ~ 004, TC-005 ~ 011, TC-018 ~ 022, TC-026 ~ 028 |
+| Story-3 | Self-Service 알림톡 루프 | REQ-FUNC-029 ~ 036 | TC-029 ~ 036 |
+| Story-4 | API First 플랫폼 연동 | REQ-FUNC-039 ~ 044 | TC-039 ~ 044 |
 
 ### 5.2 Feature → Requirement ID Mapping
 
@@ -533,9 +533,9 @@ sequenceDiagram
 | Risk ID | 리스크 | 관련 Constraint/NFR |
 |---|---|---|
 | R-01 | 기관 사이트 구조 변경으로 RPA 중단 | CON-04, REQ-NF-014, REQ-NF-045, REQ-FUNC-011 |
-| R-02 | AI 오판 시 법적 배상 책임 | CON-05, REQ-FUNC-026~028 |
+| R-02 | AI 오판 시 법적 배상 책임 | CON-05, REQ-FUNC-026 ~ 028 |
 | R-03 | 공공 API 쿼터 초과 및 비용 급증 | CON-01, REQ-NF-041 |
-| R-04 | 개인정보 유출 시 개인정보보호법 위반 | CON-06, REQ-NF-026~033 |
+| R-04 | 개인정보 유출 시 개인정보보호법 위반 | CON-06, REQ-NF-026 ~ 033 |
 | R-05 | OCR 신뢰도 부족으로 인한 수동 처리 증가 | CON-07, REQ-FUNC-004, REQ-FUNC-037, REQ-FUNC-038 |
 
 ---
@@ -578,7 +578,7 @@ sequenceDiagram
 | doc_type | STRING | NOT NULL | 서류 유형 (학위증명서/자격증/경력증명서) |
 | raw_file_path | STRING | NOT NULL | 원본 파일 저장 경로 |
 | ocr_extracted_json | JSON | NULLABLE | OCR 추출 결과 (구조화 JSON) |
-| ocr_confidence_score | FLOAT | NULLABLE, 0~100 | OCR 전체 신뢰도 점수 |
+| ocr_confidence_score | FLOAT | NULLABLE, 0 ~ 100 | OCR 전체 신뢰도 점수 |
 | uploaded_at | DATETIME | NOT NULL, DEFAULT NOW() | 업로드 일시 |
 
 #### 6.2.3 VERIFICATION_JOB (검증 작업)
@@ -591,7 +591,7 @@ sequenceDiagram
 | status | STRING | NOT NULL | 상태 (PENDING/PASS/FAIL/MANUAL_REVIEW/API_UNAVAILABLE/APPROVED/REJECTED) |
 | agency_api_response | JSON | NULLABLE | 기관 API 원본 응답 데이터 |
 | discrepancy_detail | JSON | NULLABLE | 불일치 상세 내역 (항목별 차이) |
-| confidence_score | FLOAT | NULLABLE, 0~100 | 불일치 신뢰도 점수 |
+| confidence_score | FLOAT | NULLABLE, 0 ~ 100 | 불일치 신뢰도 점수 |
 | verified_at | DATETIME | NULLABLE | 검증 완료 일시 |
 | approver_id | STRING | NULLABLE | 최종 승인자 ID (Human-in-the-loop) |
 | approved_at | DATETIME | NULLABLE | 최종 승인 일시 |
@@ -725,7 +725,7 @@ sequenceDiagram
             Note over VE: Layer 3: 3중 대조 판정
 
             VE->>VE: 입력값 vs OCR vs 기관DB 최종 대조
-            VE->>VE: confidence_score 산출 (0~100)
+            VE->>VE: confidence_score 산출 (0 ~ 100)
 
             alt 포맷 불일치 (날짜 등)
                 VE->>VE: 표준 변환 후 비교
@@ -934,7 +934,7 @@ sequenceDiagram
 | 항목 | 내용 |
 |---|---|
 | 가설 | 4,000건 공채 서류 처리 시 수기 방식(2주/1,000만원) 대비 ≥ 80% 시간 단축, ≥ 50% 비용 절감 |
-| 설계 | PoC: 채용 대행사 3곳, 각 1,000~2,000건 실제 서류 배치 처리 |
+| 설계 | PoC: 채용 대행사 3곳, 각 1,000 ~ 2,000건 실제 서류 배치 처리 |
 | 측정 지표 | 전체 처리 시간(분), 건당 비용(원), 불일치 건 자동 감지율(%) |
 | 성공 기준 | 처리 시간 ≤ 60분 / 비용 ≤ 500만원 / 자동 감지율 ≥ 95% |
 | 측정 도구 | 배치 완료 로그 + 파트너사 인건비 실사 비교 |

@@ -13,7 +13,7 @@ source_task_id: B-006
 - **기능명:** [FR-012] VerificationJob 모델 정의
 - **Epic:** DB Schema
 - **목적:** 서류 검증 작업의 전체 생애주기(Triple Check 결과, 승인/반려 상태, 리뷰어 정보)를 저장하는 **VerificationJob 모델**을 정의한다. v1.1에서 `verificationMethod`(확인 방법)과 `finalResult`(완료/확인필요) 필드가 추가되었다.
-- **설계 원칙:** SRS §3.8 (L591~614). Document → VerificationJob 1:N 관계.
+- **설계 원칙:** SRS §3.8 (L591 ~ 614). Document → VerificationJob 1:N 관계.
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — VerificationJob`](../SRS-HR-AI-Verification-v1.1.md)

@@ -13,14 +13,14 @@ source_task_id: B-005
 - **기능명:** [FR-011] Document 모델 정의
 - **Epic:** DB Schema
 - **목적:** 지원자 제출 서류 정보를 저장하는 **Document 모델**을 정의한다. v1.1에서 파일 변환(originalFileFormat, convertedFilePath), 회전 보정(rotationApplied, rotationDegrees), 자동 명명(originalFilename, normalizedFilename), 서류 분류(docCategory) 관련 필드가 대폭 추가되었다.
-- **설계 원칙:** SRS §3.8 (L567~589). JSON 필드는 String(Text)으로 대체하여 SQLite 호환 (C-TEC-003).
+- **설계 원칙:** SRS §3.8 (L567 ~ 589). JSON 필드는 String(Text)으로 대체하여 SQLite 호환 (C-TEC-003).
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — Document`](../SRS-HR-AI-Verification-v1.1.md)
   - v1.1 신규 필드 7개: docCategory, originalFilename, normalizedFilename, originalFileFormat, convertedFilePath, rotationApplied, rotationDegrees
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§2.1 C-TEC-003`](../SRS-HR-AI-Verification-v1.1.md)
   - JSON 타입은 Text로 대체하여 SQLite/PostgreSQL 호환
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.13 REQ-FUNC-081~082, 090~091`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.13 REQ-FUNC-081 ~ 082, 090 ~ 091`](../SRS-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
 - [ ] **TB-1:** Document 모델 추가

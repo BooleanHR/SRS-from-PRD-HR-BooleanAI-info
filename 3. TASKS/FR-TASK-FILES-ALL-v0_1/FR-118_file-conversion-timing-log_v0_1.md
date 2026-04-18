@@ -11,11 +11,11 @@ source_task_id: U-002
 - **기능명:** [FR-118] File conversion time logging
 - **Epic:** Performance
 - **목적:** Logs single file conversion p95<=10s, total processing p95<=40s.
-- **설계 원칙:** SRS REQ-NF-007~008
+- **설계 원칙:** SRS REQ-NF-007 ~ 008
 - **복잡도:** M
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-NF-007~008`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-NF-007 ~ 008`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic U`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: U-002
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-NF-007~008에 명시된 AC(GWT) 기반 검증
+- SRS REQ-NF-007 ~ 008에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

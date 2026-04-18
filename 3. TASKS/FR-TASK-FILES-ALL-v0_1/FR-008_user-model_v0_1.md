@@ -13,7 +13,7 @@ source_task_id: B-002
 - **기능명:** [FR-008] User 모델 정의
 - **Epic:** DB Schema
 - **목적:** 시스템 사용자(채용 담당자 OPERATOR, 관리자 ADMIN, 감사자 AUDITOR) 정보를 저장할 **User 모델**을 Prisma Schema에 정의한다. 이후 Batch 생성자, VerificationJob 리뷰어, Report 생성자와의 관계를 설정한다.
-- **설계 원칙:** SRS §3.8 Prisma Schema (L518~533) User 모델 정의를 그대로 따른다.
+- **설계 원칙:** SRS §3.8 Prisma Schema (L518 ~ 533) User 모델 정의를 그대로 따른다.
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — User 모델`](../SRS-HR-AI-Verification-v1.1.md)

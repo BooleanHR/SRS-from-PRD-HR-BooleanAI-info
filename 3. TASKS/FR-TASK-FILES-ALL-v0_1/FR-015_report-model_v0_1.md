@@ -13,7 +13,7 @@ source_task_id: B-009
 - **기능명:** [FR-015] Report 모델 정의
 - **Epic:** DB Schema
 - **목적:** PDF/엑셀 리포트 생성 기록을 저장하는 **Report 모델**을 정의한다. v1.1에서 `reportType` (PDF|EXCEL) Enum과 `excelPath` 필드가 추가되었다.
-- **설계 원칙:** SRS §3.8 (L656~671). Batch → Report 1:N, User → Report 1:N 관계.
+- **설계 원칙:** SRS §3.8 (L656 ~ 671). Batch → Report 1:N, User → Report 1:N 관계.
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — Report`](../SRS-HR-AI-Verification-v1.1.md)

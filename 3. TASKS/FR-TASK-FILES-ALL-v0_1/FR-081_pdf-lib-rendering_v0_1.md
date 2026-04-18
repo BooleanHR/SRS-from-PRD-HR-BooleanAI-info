@@ -11,11 +11,11 @@ source_task_id: M-002
 - **기능명:** [FR-081] pdf-lib PDF rendering
 - **Epic:** PDF Report
 - **목적:** Generates PDF with pdf-lib: batch name, verification datetime, per-case PASS/FAIL, mock_used marking, API response snapshot summary.
-- **설계 원칙:** SRS REQ-FUNC-040~042
+- **설계 원칙:** SRS REQ-FUNC-040 ~ 042
 - **복잡도:** H
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-040~042`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-040 ~ 042`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic M`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: M-002
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-040~042에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-040 ~ 042에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

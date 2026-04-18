@@ -30,7 +30,7 @@
 | SETUP-001 | Next.js App Router 프로젝트 생성 + TypeScript 설정 | §2.1 C-TEC-001 | None | L |
 | SETUP-002 | shadcn/ui + Tailwind CSS 설치 및 디자인 시스템 구성 | §2.1 C-TEC-004 | SETUP-001 | L |
 | SETUP-003 | Prisma 설치 + SQLite(로컬 개발) datasource 설정 | §2.1 C-TEC-003 | SETUP-001 | L |
-| SETUP-004 | Supabase 프로젝트 생성 + 환경변수 설정 | §2.1~2.2 C-TEC-003, 007 | SETUP-001 | L |
+| SETUP-004 | Supabase 프로젝트 생성 + 환경변수 설정 | §2.1 ~ 2.2 C-TEC-003, 007 | SETUP-001 | L |
 | SETUP-005 | Vercel AI SDK + Google Gemini API 패키지 설치 | §2.2 C-TEC-005, 006 | SETUP-001 | L |
 | SETUP-006 | Resend 패키지 설치 + 환경변수 설정 | §3.6 컴포넌트 정의 | SETUP-001 | L |
 | SETUP-007 | pdf-lib 패키지 설치 | §2.3 스택 선택 이유 | SETUP-001 | L |
@@ -50,7 +50,7 @@
 | DB-007 | AuditTrail 모델 정의 (8필드 + 1:1관계, SHA-256 해시) | §3.8 L534-548 | DB-006 | M |
 | DB-008 | Notification 모델 정의 (10필드 + 2관계) | §3.8 L550-566 | DB-004, DB-006 | M |
 | DB-009 | Report 모델 정의 (6필드 + 2관계) | §3.8 L568-581 | DB-003, DB-002 | M |
-| DB-010 | Prisma 마이그레이션 실행 (SQLite 로컬) + 검증 | §2.1 C-TEC-003 | DB-001~009 | M |
+| DB-010 | Prisma 마이그레이션 실행 (SQLite 로컬) + 검증 | §2.1 C-TEC-003 | DB-001 ~ 009 | M |
 
 ---
 
@@ -104,8 +104,8 @@
 | Task ID | Feature (기능명) | 관련 SRS 섹션 | 선행 태스크 | 복잡도 |
 |---|---|---|---|---|
 | F1-CMD-001 | [Command] 파일 형식·크기 유효성 검증 (PDF/JPG/PNG만, 20MB 제한, 위반 시 422) | REQ-FUNC-005, §3.7 오류 422 | API-001 | L |
-| F1-CMD-002 | [Command] 서류 파일 업로드 Server Action — Supabase Storage 저장 + DOCUMENT 레코드 생성 | REQ-FUNC-001, Seq-01 Step 1~2 | DB-005, SETUP-004, AUTH-004 | M |
-| F1-CMD-003 | [Command] Gemini Vision OCR Server Action — `generateObject()` 호출, 구조화 JSON 추출 | REQ-FUNC-002, Seq-01 Step 3~5 | SETUP-005, API-007, F1-CMD-002 | H |
+| F1-CMD-002 | [Command] 서류 파일 업로드 Server Action — Supabase Storage 저장 + DOCUMENT 레코드 생성 | REQ-FUNC-001, Seq-01 Step 1 ~ 2 | DB-005, SETUP-004, AUTH-004 | M |
+| F1-CMD-003 | [Command] Gemini Vision OCR Server Action — `generateObject()` 호출, 구조화 JSON 추출 | REQ-FUNC-002, Seq-01 Step 3 ~ 5 | SETUP-005, API-007, F1-CMD-002 | H |
 | F1-CMD-004 | [Command] OCR 결과 DB 저장 — ocr_extracted_json + ocr_confidence_score 업데이트 | REQ-FUNC-003, Seq-01 Step 6 | F1-CMD-003 | L |
 | F1-CMD-005 | [Command] OCR 신뢰도 임계치 분기 — <70 시 MANUAL_REVIEW 생성 + 대시보드 플래그 | REQ-FUNC-004, ADR-005 | F1-CMD-004, DB-006 | M |
 
@@ -119,7 +119,7 @@
 | TC-CMD-002 | [Command] Layer 2 — OCR vs 정부24 API 조회 (10초 타임아웃 → Mock 자동 대체 + mock_used) | REQ-FUNC-011, Seq-01 Layer 2 | MOCK-001, API-008, TC-CMD-001 | H |
 | TC-CMD-003 | [Command] Layer 2 (HRDK) — 자격증 Mock 검증 + mock_used=true | REQ-FUNC-012 | MOCK-002, API-009, TC-CMD-001 | M |
 | TC-CMD-004 | [Command] Layer 3 — 최종 판정 (모두 일치→PASS, 1개+ 불일치→FAIL + discrepancy_detail JSON) | REQ-FUNC-013, Seq-01 Layer 3 | TC-CMD-001, TC-CMD-002 | H |
-| TC-CMD-005 | [Command] Triple Check 오케스트레이터 — `executeTripleCheck(docId)` 순차 실행 + 상태 업데이트 | REQ-FUNC-010, §3.12 VerificationService | TC-CMD-001~004, F1-CMD-005 | H |
+| TC-CMD-005 | [Command] Triple Check 오케스트레이터 — `executeTripleCheck(docId)` 순차 실행 + 상태 업데이트 | REQ-FUNC-010, §3.12 VerificationService | TC-CMD-001 ~ 004, F1-CMD-005 | H |
 
 ---
 
@@ -153,7 +153,7 @@
 | PDF-CMD-001 | [Command] PDF 생성 Server Action — pdf-lib 동기 처리 (100건 이하) | REQ-FUNC-040, Seq-03 | SETUP-007, DB-009, DB-006 | H |
 | PDF-CMD-002 | [Command] PDF 레이아웃 구성 — 회차명·검증일시·건별 결과·mock_used '(Mock)' 표기 | REQ-FUNC-042 | PDF-CMD-001 | H |
 | PDF-CMD-003 | [Command] REPORT 레코드 생성 — status=COMPLETED, pdf_path, total_count | §3.8 Report | PDF-CMD-001, DB-009 | L |
-| PDF-QRY-001 | [Query] PDF 다운로드 Route Handler — PDF Buffer 스트림 반환 | §3.7, Seq-03 Step 8~9 | PDF-CMD-001, AUTH-004 | M |
+| PDF-QRY-001 | [Query] PDF 다운로드 Route Handler — PDF Buffer 스트림 반환 | §3.7, Seq-03 Step 8 ~ 9 | PDF-CMD-001, AUTH-004 | M |
 
 ---
 
@@ -199,17 +199,17 @@
 
 | Task ID | Feature (기능명) | 관련 SRS 섹션 | 선행 태스크 | 복잡도 |
 |---|---|---|---|---|
-| UI-001 | 로그인/회원가입 페이지 (이메일/패스워드 + Google OAuth) | §3.6, REQ-NF-020 | AUTH-001~003 | M |
+| UI-001 | 로그인/회원가입 페이지 (이메일/패스워드 + Google OAuth) | §3.6, REQ-NF-020 | AUTH-001 ~ 003 | M |
 | UI-002 | 서류 업로드 페이지 (드래그앤드롭 + 지원자·서류유형 선택) | §3.6, REQ-FUNC-001 | F1-CMD-002, SETUP-002 | M |
-| UI-003 | 검증 결과 대시보드 (status 색상·confidence 바·SWR polling·플래그) | §3.6, REQ-FUNC-030, 060 | HIL-QRY-001, STAT-QRY-001~002 | H |
+| UI-003 | 검증 결과 대시보드 (status 색상·confidence 바·SWR polling·플래그) | §3.6, REQ-FUNC-030, 060 | HIL-QRY-001, STAT-QRY-001 ~ 002 | H |
 | UI-004 | 불일치 상세 비교 화면 (OCR vs 기관 DB 항목별 하이라이트 Table) | REQ-FUNC-014 | HIL-QRY-002 | M |
-| UI-005 | 승인/반려 UI (승인 버튼·반려 Dialog 사유 필수·결과 Toast) | REQ-FUNC-030~032 | HIL-CMD-001~002, SETUP-002 | M |
+| UI-005 | 승인/반려 UI (승인 버튼·반려 Dialog 사유 필수·결과 Toast) | REQ-FUNC-030 ~ 032 | HIL-CMD-001 ~ 002, SETUP-002 | M |
 | UI-006 | MANUAL_REVIEW 큐 화면 (수동 처리 대기 목록·상태 변경) | REQ-FUNC-033 | HIL-QRY-003 | M |
 | UI-007 | PDF 리포트 다운로드 버튼 (배치 상세에서 클릭 → 브라우저 다운로드) | REQ-FUNC-040 | PDF-QRY-001 | L |
-| UI-008 | Audit Trail 열람 화면 (AUDITOR 전용 읽기 전용·viewer_log 표시) | §3.11 UC08, REQ-FUNC-022 | AT-QRY-001~002 | M |
+| UI-008 | Audit Trail 열람 화면 (AUDITOR 전용 읽기 전용·viewer_log 표시) | §3.11 UC08, REQ-FUNC-022 | AT-QRY-001 ~ 002 | M |
 | UI-009 | 사용자 관리 화면 (ADMIN 전용, 역할 변경 드롭다운) | §3.11 UC09 | USER-CMD-001, USER-QRY-001 | M |
 | UI-010 | 개인정보 마스킹 UI 유틸 함수 ('홍○○', '010-****-1234') | REQ-NF-023 | None | L |
-| UI-011 | 배치 관리 화면 (생성·지원자 등록·목록·상태 변경) | §3.8 Batch/Applicant | BATCH-CMD-001~003, BATCH-QRY-001 | M |
+| UI-011 | 배치 관리 화면 (생성·지원자 등록·목록·상태 변경) | §3.8 Batch/Applicant | BATCH-CMD-001 ~ 003, BATCH-QRY-001 | M |
 
 ---
 
@@ -221,9 +221,9 @@
 
 | Task ID | Feature (기능명) | 관련 AC 근거 | 선행 태스크 | 복잡도 |
 |---|---|---|---|---|
-| TEST-001 | 파일 업로드 유효성 — .bmp→422, 25MB→422, 15MB JPG→성공 | REQ-FUNC-001, 005 | F1-CMD-001~002 | M |
+| TEST-001 | 파일 업로드 유효성 — .bmp→422, 25MB→422, 15MB JPG→성공 | REQ-FUNC-001, 005 | F1-CMD-001 ~ 002 | M |
 | TEST-002 | OCR 결과 구조 검증 — 4개 필드(성명·발급번호·발급일자·발급기관명) JSON 포함 | REQ-FUNC-002 | F1-CMD-003 | M |
-| TEST-003 | OCR confidence_score 0~100 범위 DB 저장 | REQ-FUNC-003 | F1-CMD-004 | L |
+| TEST-003 | OCR confidence_score 0 ~ 100 범위 DB 저장 | REQ-FUNC-003 | F1-CMD-004 | L |
 | TEST-004 | 신뢰도 <70 → MANUAL_REVIEW 저장 | REQ-FUNC-004 | F1-CMD-005 | M |
 | TEST-005 | Triple Check 3단계 순차 실행 + 각 결과 DB 저장 | REQ-FUNC-010 | TC-CMD-005 | H |
 | TEST-006 | 정부24 API 10초 타임아웃 → Mock 대체 + mock_used=true | REQ-FUNC-011 | TC-CMD-002 | M |
@@ -247,7 +247,7 @@
 | Task ID | Feature (기능명) | 관련 SRS 섹션 | 선행 태스크 | 복잡도 |
 |---|---|---|---|---|
 | ITEST-001 | E2E: 업로드→OCR→Triple Check→Audit Trail (의도적 불일치→FAIL 확인) | §3.17 Exp-2, Exp-5 | TC-CMD-005, AT-CMD-001 | H |
-| ITEST-002 | E2E: 승인/반려→DB 상태 변경→SWR 갱신 | §3.17 Exp-5 | HIL-CMD-001~002, STAT-QRY-002 | M |
+| ITEST-002 | E2E: 승인/반려→DB 상태 변경→SWR 갱신 | §3.17 Exp-5 | HIL-CMD-001 ~ 002, STAT-QRY-002 | M |
 | ITEST-003 | E2E: PDF 생성→다운로드 (10건 배치, Exp-4) | §3.17 Exp-4 | PDF-CMD-001, PDF-QRY-001 | M |
 | ITEST-004 | E2E: Audit Trail 불변성 — DELETE API 호출→403 (Exp-3) | §3.17 Exp-3 | AT-CMD-002 | M |
 | ITEST-005 | RBAC 접근 제어 통합 — OPERATOR/ADMIN/AUDITOR별 라우트 접근·차단 | REQ-NF-024 | AUTH-004, AUTH-005 | M |
@@ -276,7 +276,7 @@
 | PERF-002 | Triple Check 처리 시간 로깅 (p95 ≤ 30초 기준) | REQ-NF-002 | TC-CMD-005 | L |
 | PERF-003 | PDF 생성 시간 로깅 (p95 ≤ 10초, 100건 이하) | REQ-NF-003 | PDF-CMD-001 | L |
 | PERF-004 | 대시보드 로드 시간 확인 (p95 ≤ 3초) | REQ-NF-004 | UI-003 | L |
-| PERF-005 | 승인/반려 응답 시간 측정 (p95 ≤ 2초) | REQ-NF-005 | HIL-CMD-001~002 | L |
+| PERF-005 | 승인/반려 응답 시간 측정 (p95 ≤ 2초) | REQ-NF-005 | HIL-CMD-001 ~ 002 | L |
 
 ---
 
@@ -307,7 +307,7 @@
 | SETUP-001 | Project Bootstrap | Next.js App Router 프로젝트 생성 | §2.1 C-TEC-001 | None | L |
 | SETUP-002 | Project Bootstrap | shadcn/ui + Tailwind CSS 설치 | §2.1 C-TEC-004 | SETUP-001 | L |
 | SETUP-003 | Project Bootstrap | Prisma + SQLite 설정 | §2.1 C-TEC-003 | SETUP-001 | L |
-| SETUP-004 | Project Bootstrap | Supabase 프로젝트 + 환경변수 | §2.1~2.2 | SETUP-001 | L |
+| SETUP-004 | Project Bootstrap | Supabase 프로젝트 + 환경변수 | §2.1 ~ 2.2 | SETUP-001 | L |
 | SETUP-005 | Project Bootstrap | Vercel AI SDK + Gemini API | §2.2 C-TEC-005, 006 | SETUP-001 | L |
 | SETUP-006 | Project Bootstrap | Resend 패키지 설치 | §3.6 | SETUP-001 | L |
 | SETUP-007 | Project Bootstrap | pdf-lib 패키지 설치 | §2.3 | SETUP-001 | L |
@@ -320,7 +320,7 @@
 | DB-007 | Database Schema | AuditTrail 모델 정의 | §3.8 L534-548 | DB-006 | M |
 | DB-008 | Database Schema | Notification 모델 정의 | §3.8 L550-566 | DB-004, DB-006 | M |
 | DB-009 | Database Schema | Report 모델 정의 | §3.8 L568-581 | DB-003, DB-002 | M |
-| DB-010 | Database Schema | Prisma 마이그레이션 (SQLite) | §2.1 C-TEC-003 | DB-001~009 | M |
+| DB-010 | Database Schema | Prisma 마이그레이션 (SQLite) | §2.1 C-TEC-003 | DB-001 ~ 009 | M |
 | API-001 | API Contract | 공통 에러 응답 + HTTP 코드 상수 | §3.7 오류 응답 | None | M |
 | API-002 | API Contract | POST /api/verifications DTO | §3.7, Seq-01 | DB-006, DB-005 | M |
 | API-003 | API Contract | GET /api/verifications/[job_id] DTO | §3.7 | DB-006, DB-007 | M |
@@ -349,8 +349,8 @@
 | TC-CMD-001 | Triple Check | Layer 1 — 입력값 vs OCR | REQ-FUNC-010 | F1-CMD-004, DB-006 | M |
 | TC-CMD-002 | Triple Check | Layer 2 — OCR vs 정부24 (타임아웃→Mock) | REQ-FUNC-011 | MOCK-001, TC-CMD-001 | H |
 | TC-CMD-003 | Triple Check | Layer 2 (HRDK) — Mock 검증 | REQ-FUNC-012 | MOCK-002, TC-CMD-001 | M |
-| TC-CMD-004 | Triple Check | Layer 3 — 최종 판정 (PASS/FAIL) | REQ-FUNC-013 | TC-CMD-001~002 | H |
-| TC-CMD-005 | Triple Check | 오케스트레이터 executeTripleCheck() | REQ-FUNC-010 | TC-CMD-001~004, F1-CMD-005 | H |
+| TC-CMD-004 | Triple Check | Layer 3 — 최종 판정 (PASS/FAIL) | REQ-FUNC-013 | TC-CMD-001 ~ 002 | H |
+| TC-CMD-005 | Triple Check | 오케스트레이터 executeTripleCheck() | REQ-FUNC-010 | TC-CMD-001 ~ 004, F1-CMD-005 | H |
 | AT-CMD-001 | Audit Trail | 자동 생성 (SHA-256 + immutable + retention) | REQ-FUNC-020, 023 | TC-CMD-005, DB-007 | M |
 | AT-CMD-002 | Audit Trail | 논리적 불변성 (삭제→403) | REQ-FUNC-021 | AT-CMD-001 | M |
 | AT-QRY-001 | Audit Trail | 열람 + viewer_log 갱신 | REQ-FUNC-022 | AT-CMD-001 | M |
@@ -374,18 +374,18 @@
 | BATCH-QRY-001 | Batch Mgmt | 배치 목록·상세 조회 | §3.8 | DB-003, DB-004 | M |
 | USER-CMD-001 | User Mgmt | 역할 변경 (ADMIN 전용) | §3.11 UC09 | DB-002, AUTH-004 | M |
 | USER-QRY-001 | User Mgmt | 사용자 목록 (ADMIN 전용) | §3.11 UC09 | DB-002, AUTH-004 | L |
-| UI-001 | Frontend | 로그인/회원가입 페이지 | REQ-NF-020 | AUTH-001~003 | M |
+| UI-001 | Frontend | 로그인/회원가입 페이지 | REQ-NF-020 | AUTH-001 ~ 003 | M |
 | UI-002 | Frontend | 서류 업로드 페이지 | REQ-FUNC-001 | F1-CMD-002, SETUP-002 | M |
-| UI-003 | Frontend | 검증 결과 대시보드 (SWR polling) | REQ-FUNC-030, 060 | HIL-QRY-001, STAT-QRY-001~002 | H |
+| UI-003 | Frontend | 검증 결과 대시보드 (SWR polling) | REQ-FUNC-030, 060 | HIL-QRY-001, STAT-QRY-001 ~ 002 | H |
 | UI-004 | Frontend | 불일치 상세 비교 (하이라이트) | REQ-FUNC-014 | HIL-QRY-002 | M |
-| UI-005 | Frontend | 승인/반려 UI (Dialog + Toast) | REQ-FUNC-030~032 | HIL-CMD-001~002 | M |
+| UI-005 | Frontend | 승인/반려 UI (Dialog + Toast) | REQ-FUNC-030 ~ 032 | HIL-CMD-001 ~ 002 | M |
 | UI-006 | Frontend | MANUAL_REVIEW 큐 화면 | REQ-FUNC-033 | HIL-QRY-003 | M |
 | UI-007 | Frontend | PDF 다운로드 버튼 | REQ-FUNC-040 | PDF-QRY-001 | L |
-| UI-008 | Frontend | Audit Trail 열람 (AUDITOR 전용) | REQ-FUNC-022 | AT-QRY-001~002 | M |
+| UI-008 | Frontend | Audit Trail 열람 (AUDITOR 전용) | REQ-FUNC-022 | AT-QRY-001 ~ 002 | M |
 | UI-009 | Frontend | 사용자 관리 (ADMIN 전용) | §3.11 UC09 | USER-CMD-001, USER-QRY-001 | M |
 | UI-010 | Frontend | 개인정보 마스킹 유틸 | REQ-NF-023 | None | L |
-| UI-011 | Frontend | 배치 관리 화면 | §3.8 | BATCH-CMD-001~003, BATCH-QRY-001 | M |
-| TEST-001 | Unit Test | 파일 업로드 유효성 (422) | REQ-FUNC-001, 005 | F1-CMD-001~002 | M |
+| UI-011 | Frontend | 배치 관리 화면 | §3.8 | BATCH-CMD-001 ~ 003, BATCH-QRY-001 | M |
+| TEST-001 | Unit Test | 파일 업로드 유효성 (422) | REQ-FUNC-001, 005 | F1-CMD-001 ~ 002 | M |
 | TEST-002 | Unit Test | OCR 결과 4필드 JSON 구조 | REQ-FUNC-002 | F1-CMD-003 | M |
 | TEST-003 | Unit Test | confidence_score DB 저장 | REQ-FUNC-003 | F1-CMD-004 | L |
 | TEST-004 | Unit Test | 신뢰도 <70 → MANUAL_REVIEW | REQ-FUNC-004 | F1-CMD-005 | M |
@@ -404,7 +404,7 @@
 | TEST-017 | Unit Test | 대시보드 5개 지표 | REQ-FUNC-060 | STAT-QRY-001 | L |
 | TEST-018 | Unit Test | 개인정보 마스킹 | REQ-NF-023 | UI-010 | L |
 | ITEST-001 | Integration Test | E2E: 업로드→검증→Audit Trail | §3.17 Exp-2, 5 | TC-CMD-005, AT-CMD-001 | H |
-| ITEST-002 | Integration Test | E2E: 승인/반려→SWR 갱신 | §3.17 Exp-5 | HIL-CMD-001~002 | M |
+| ITEST-002 | Integration Test | E2E: 승인/반려→SWR 갱신 | §3.17 Exp-5 | HIL-CMD-001 ~ 002 | M |
 | ITEST-003 | Integration Test | E2E: PDF 생성→다운로드 | §3.17 Exp-4 | PDF-CMD-001, PDF-QRY-001 | M |
 | ITEST-004 | Integration Test | E2E: Audit Trail 불변성 | §3.17 Exp-3 | AT-CMD-002 | M |
 | ITEST-005 | Integration Test | RBAC 접근 제어 통합 | REQ-NF-024 | AUTH-004, AUTH-005 | M |
@@ -415,7 +415,7 @@
 | PERF-002 | Performance | Triple Check 시간 (p95≤30초) | REQ-NF-002 | TC-CMD-005 | L |
 | PERF-003 | Performance | PDF 생성 시간 (p95≤10초) | REQ-NF-003 | PDF-CMD-001 | L |
 | PERF-004 | Performance | 대시보드 로드 (p95≤3초) | REQ-NF-004 | UI-003 | L |
-| PERF-005 | Performance | 승인/반려 응답 (p95≤2초) | REQ-NF-005 | HIL-CMD-001~002 | L |
+| PERF-005 | Performance | 승인/반려 응답 (p95≤2초) | REQ-NF-005 | HIL-CMD-001 ~ 002 | L |
 | OPS-001 | Operations | Vercel 오류 모니터링 (5xx≤2%) | REQ-NF-030, 011 | SETUP-001 | L |
 | OPS-002 | Operations | OCR 실패→에러 표시 | REQ-NF-031 | F1-CMD-003 | L |
 | OPS-003 | Operations | Mock 사용 현황 표시 | REQ-NF-032 | STAT-QRY-001 | L |
@@ -430,20 +430,20 @@
 ```mermaid
 graph TD
     subgraph P1["Phase 1: Contract & Data"]
-        SETUP["SETUP-001~007"] --> DB["DB-001~010"]
-        SETUP --> API["API-001~010"]
+        SETUP["SETUP-001 ~ 007"] --> DB["DB-001 ~ 010"]
+        SETUP --> API["API-001 ~ 010"]
         DB --> API
-        DB --> MOCK["MOCK-001~005"]
+        DB --> MOCK["MOCK-001 ~ 005"]
         API --> MOCK
     end
 
     subgraph P2["Phase 2: Auth"]
-        AUTH["AUTH-001~005"]
+        AUTH["AUTH-001 ~ 005"]
     end
 
     subgraph P3["Phase 3: Core Logic"]
-        F1["F1-CMD-001~005<br/>OCR"]
-        TC["TC-CMD-001~005<br/>Triple Check"]
+        F1["F1-CMD-001 ~ 005<br/>OCR"]
+        TC["TC-CMD-001 ~ 005<br/>Triple Check"]
         AT["AT-CMD/QRY<br/>Audit Trail"]
         HIL["HIL-CMD/QRY<br/>승인/반려"]
         PDF["PDF-CMD/QRY<br/>리포트"]
@@ -454,18 +454,18 @@ graph TD
     end
 
     subgraph P4["Phase 4: UI"]
-        UI["UI-001~011"]
+        UI["UI-001 ~ 011"]
     end
 
     subgraph P5["Phase 5: Test"]
-        TEST["TEST-001~018"] --> ITEST["ITEST-001~005"]
+        TEST["TEST-001 ~ 018"] --> ITEST["ITEST-001 ~ 005"]
     end
 
     subgraph P6["Phase 6: NFR + Deploy"]
-        SEC["SEC-001~003"]
-        PERF["PERF-001~005"]
-        OPS["OPS-001~003"]
-        DEPLOY["DEPLOY-001~003"]
+        SEC["SEC-001 ~ 003"]
+        PERF["PERF-001 ~ 005"]
+        OPS["OPS-001 ~ 003"]
+        DEPLOY["DEPLOY-001 ~ 003"]
     end
 
     DB --> AUTH
@@ -515,9 +515,9 @@ graph TD
 | REQ-NF-003 | PERF-003 |
 | REQ-NF-004 | PERF-004 |
 | REQ-NF-005 | PERF-005 |
-| REQ-NF-010~011 | OPS-001 |
+| REQ-NF-010 ~ 011 | OPS-001 |
 | REQ-NF-012 | OPS-003 |
-| REQ-NF-020 | AUTH-001~003, UI-001 |
+| REQ-NF-020 | AUTH-001 ~ 003, UI-001 |
 | REQ-NF-021 | SEC-001 |
 | REQ-NF-022 | SEC-002 |
 | REQ-NF-023 | SEC-003, UI-010, TEST-018 |
@@ -535,7 +535,7 @@ graph TD
 | 구분 | 태스크 수 |
 |---|---|
 | Step 1 — Contract & Data (SETUP, DB, API, MOCK) | 32 |
-| Step 2 — Logic & Mutation (AUTH~UI) | 48 |
+| Step 2 — Logic & Mutation (AUTH ~ UI) | 48 |
 | Step 3 — Test (TEST, ITEST) | 23 |
 | Step 4 — NFR & Deploy (SEC, PERF, OPS, DEPLOY) | 14 |
 | **총계** | **117** |

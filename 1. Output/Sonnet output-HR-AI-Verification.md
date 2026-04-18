@@ -30,10 +30,10 @@
 3. ISO/IEC/IEEE 29148:2018 표준에 완전히 준수하는 추적 가능한 요구사항 체계를 수립한다.
 
 > **현황 Pain 기준선 (PRD §1 기반)**
-> - 수기 검증: 4,000건 공채 기준 인건비 900~1,000만원, 처리 기간 2주
+> - 수기 검증: 4,000건 공채 기준 인건비 900 ~ 1,000만원, 처리 기간 2주
 > - 허위 기재 미검출률: 약 20% (구직자 5명 중 1명)
 > - 감사 대응 증빙: 수기 기반으로 객관적 로그 제출 불가 (피해 사례 34건 이상 징계·수사)
-> - 담당자 민원 전화 비중: 업무의 70~90% 점유
+> - 담당자 민원 전화 비중: 업무의 70 ~ 90% 점유
 
 ---
 
@@ -48,9 +48,9 @@
 | IS-03 | 병렬 캡처 + Audit Trail | 원본-조회본 병렬 캡처 + 타임스탬프 기반 불변 Audit Trail 생성 |
 | IS-04 | 감사 PDF 리포트 자동 생성 | 감사원 제출용 PDF 리포트 자동 생성 |
 | IS-05 | Triple Check Loop | 입력값 / OCR 추출값 / 기관 DB 3중 대조 검증 |
-| IS-06 | Human-in-the-loop UI | AI 결과 + 담당자 최종 승인 UI (Sprint 2~3) |
-| IS-07 | 카카오알림톡 Self-Service 루프 | 불일치 감지 → 자동 발송 → 지원자 재제출 (Sprint 2~3) |
-| IS-08 | 이미지 전처리 엔진 | 저화질/기울어진 이미지 보정 알고리즘 (Sprint 2~3) |
+| IS-06 | Human-in-the-loop UI | AI 결과 + 담당자 최종 승인 UI (Sprint 2 ~ 3) |
+| IS-07 | 카카오알림톡 Self-Service 루프 | 불일치 감지 → 자동 발송 → 지원자 재제출 (Sprint 2 ~ 3) |
+| IS-08 | 이미지 전처리 엔진 | 저화질/기울어진 이미지 보정 알고리즘 (Sprint 2 ~ 3) |
 | IS-09 | 외부 ATS REST API 연동 | 플랫폼 파트너 플러그인 연동 (Phase 2) |
 | IS-10 | 배치 처리 스케줄러 | 대량 서류 자동 병렬 처리 (Phase 2) |
 | IS-11 | 불일치 신뢰도 점수 대시보드 | 시각화 대시보드 (Phase 2) |
@@ -141,7 +141,7 @@
 | 가정-01 | 핵심 타겟 기관(공공기관)의 정부24/HRDK API 연동 승인이 MVP 출시(2026-06) 전 완료된다 |
 | 가정-02 | 카카오 알림톡 템플릿 심사는 개발 착수 후 2주 이내 승인된다 |
 | 가정-03 | ISMS-P 인증은 Phase 2 출시(2026-07) 전까지 완료되며, 이전에는 내부 보안 정책으로 운영한다 |
-| 가정-04 | PoC 파트너 채용 대행사 3곳이 Phase 1 실험(2026-05~06) 착수 전에 확보된다 |
+| 가정-04 | PoC 파트너 채용 대행사 3곳이 Phase 1 실험(2026-05 ~ 06) 착수 전에 확보된다 |
 
 ### 의존성 (Dependencies)
 
@@ -325,7 +325,7 @@ sequenceDiagram
 | REQ-FUNC-001 | 서류 파일 업로드 수신 | 시스템은 PDF, JPG, PNG 형식의 서류 파일을 웹 포털 및 API를 통해 수신해야 한다. 단일 파일의 최대 크기는 20MB 이하이어야 한다. | Must | PRD §4-M1, Story-2 |
 | REQ-FUNC-002 | 이미지 전처리 | 시스템은 DPI < 150이거나 기울기 ≥ 5°인 이미지에 대해 자동 보정(회전 보정, 대비 향상, 노이즈 제거)을 적용해야 한다. | Should | PRD §4-S3, Story-3(홍길동) |
 | REQ-FUNC-003 | OCR 텍스트 추출 | 시스템은 전처리된 서류 이미지에서 학위·자격증·경력의 핵심 필드(성명, 발급번호, 발급일자, 발급기관명)를 구조화 JSON으로 추출해야 한다. | Must | PRD §4-M1 |
-| REQ-FUNC-004 | OCR 신뢰도 점수 산출 | 시스템은 OCR 추출 결과에 대해 0~100의 신뢰도 점수를 산출하고 추출 결과 JSON에 포함하여 반환해야 한다. | Must | PRD §4-M1, ADR-005 |
+| REQ-FUNC-004 | OCR 신뢰도 점수 산출 | 시스템은 OCR 추출 결과에 대해 0 ~ 100의 신뢰도 점수를 산출하고 추출 결과 JSON에 포함하여 반환해야 한다. | Must | PRD §4-M1, ADR-005 |
 | REQ-FUNC-005 | OCR 신뢰도 미달 건 큐 이관 | OCR 신뢰도 점수가 80 미만인 서류는 자동으로 '수동 확인 큐'에 이관되고, 담당자 대시보드에 '이미지 품질 미달' 플래그와 함께 표시되어야 한다. | Must | PRD §7-R05, ADR-005 |
 
 #### REQ-FUNC-003 Acceptance Criteria (AC)
@@ -353,7 +353,7 @@ sequenceDiagram
 | REQ-FUNC-012 | HRDK API 자격증 검증 연동 | 시스템은 자격증번호 및 생년월일을 HRDK API에 전송하여 자격증 유효 여부 및 취득일을 수신해야 한다. OAuth 2.0 인증을 사용해야 한다. | Must | PRD §4-M2, §6 |
 | REQ-FUNC-013 | API 타임아웃/실패 시 RPA 폴백 | 공공 API 응답 시간이 5초를 초과하거나 응답 실패 2회 연속 발생 시, 시스템은 자동으로 RPA 엔진을 통한 기관 사이트 조회로 전환해야 한다. | Must | PRD §3-Story-2-AC-2, §7-R01 |
 | REQ-FUNC-014 | 검증 결과 판정 및 플래그 생성 | Triple Check Loop 3단계 모두 일치 시 '정상(PASS)', 1개 이상 불일치 시 '불일치(FAIL)' 플래그와 함께 불일치 항목 상세를 기록해야 한다. | Must | PRD §3-Story-2-AC-1 |
-| REQ-FUNC-015 | 불일치 항목 시각화 | 검증 결과가 '불일치'인 건에 대해 담당자가 상세 화면 조회 시, OCR 추출값과 기관 DB 반환값의 차이를 항목별 하이라이트로 표시하고 불일치 신뢰도 점수(0~100)를 제공해야 한다. | Must | PRD §3-Story-2-AC-3 |
+| REQ-FUNC-015 | 불일치 항목 시각화 | 검증 결과가 '불일치'인 건에 대해 담당자가 상세 화면 조회 시, OCR 추출값과 기관 DB 반환값의 차이를 항목별 하이라이트로 표시하고 불일치 신뢰도 점수(0 ~ 100)를 제공해야 한다. | Must | PRD §3-Story-2-AC-3 |
 | REQ-FUNC-016 | 날짜 형식 표준화 | 기관 DB와 OCR 추출값 간 날짜/코드 형식이 상이한 경우(예: YYYYMMDD vs YYYY-MM-DD), 시스템은 자동 표준 변환 후 비교해야 한다. 변환 실패 시 원문을 병기하여 표시해야 한다. | Must | PRD §3-Story-2-AC-3 실패 케이스 |
 | REQ-FUNC-017 | API 쿼터 모니터링 | 시스템은 정부24 API의 일일 호출량을 실시간 집계하고, 가용 쿼터의 80% 도달 시 관리자에게 알림(Slack/이메일)을 발송해야 한다. | Must | PRD §7-R03, ADR-003 |
 
@@ -374,7 +374,7 @@ sequenceDiagram
 **AC-FUNC-015-01:**
 - **Given** 검증 결과가 'FAIL'인 건이 존재하는 상태에서
 - **When** 담당자가 해당 건의 상세 화면을 클릭하면
-- **Then** OCR 추출값과 기관 DB 반환값의 차이가 항목별 하이라이트로 표시되고, 불일치 신뢰도 점수(0~100)가 1초 이내에 화면에 표시되어야 한다.
+- **Then** OCR 추출값과 기관 DB 반환값의 차이가 항목별 하이라이트로 표시되고, 불일치 신뢰도 점수(0 ~ 100)가 1초 이내에 화면에 표시되어야 한다.
 
 ---
 
@@ -509,10 +509,10 @@ sequenceDiagram
 |---|---|---|---|---|
 | REQ-NF-001 | 단일 서류 검증 E2E 응답 시간 | 공공 API 포함 E2E 기준 p95 ≤ 5초 | APM 응답 시간 백분위 집계 | PRD §5-성능, Story-2-AC-2, KPI-1 |
 | REQ-NF-002 | OCR 추출 처리 시간 | 단일 파일 기준 p95 ≤ 3초 | OCR 엔진 처리 시간 로그 | PRD §4-M1 |
-| REQ-NF-003 | 감사 PDF 생성 시간 (소량) | 500건 이하 기준 p95 ≤ 3초 | 리포트 생성 시작~완료 타임스탬프 차이 | PRD §5-성능, Story-1-AC-2 |
+| REQ-NF-003 | 감사 PDF 생성 시간 (소량) | 500건 이하 기준 p95 ≤ 3초 | 리포트 생성 시작 ~ 완료 타임스탬프 차이 | PRD §5-성능, Story-1-AC-2 |
 | REQ-NF-004 | 카카오알림톡 발송 지연 | 불일치 감지 후 ≤ 3분 | 검증 결과 저장 시각 vs 발송 완료 시각 차이 | PRD §5-성능, Story-3-AC-1 |
 | REQ-NF-005 | 외부 API (ATS 연동) 응답 시간 | p95 ≤ 10초 | API Gateway 응답 시간 백분위 집계 | PRD §5-성능, Story-4-AC-1 |
-| REQ-NF-006 | 대량 배치 처리 처리량 | ≥ 4,000건/시간 (병렬 처리 기준) | 배치 완료 로그 (시작~종료 시각, 총 처리 건수) | PRD §5-성능, KPI-1 |
+| REQ-NF-006 | 대량 배치 처리 처리량 | ≥ 4,000건/시간 (병렬 처리 기준) | 배치 완료 로그 (시작 ~ 종료 시각, 총 처리 건수) | PRD §5-성능, KPI-1 |
 | REQ-NF-007 | API Key 인증 처리 시간 | ≤ 100ms | API Gateway 인증 처리 시간 로그 | PRD §3-Story-4-AC-2 |
 | REQ-NF-008 | Sandbox 환경 응답 시간 | ≤ 3초 | Sandbox 환경 API 응답 시간 측정 | PRD §3-Story-4-AC-3 |
 | REQ-NF-009 | 불일치 항목 시각화 응답 | ≤ 1초 | 상세 화면 로드 완료 시간 측정 | PRD §3-Story-2-AC-3 |
@@ -607,22 +607,22 @@ sequenceDiagram
 
 | Story / PRD 기능 | REQ-FUNC ID | REQ-NF ID | Test Case ID (예시) |
 |---|---|---|---|
-| **Story-1** (Audit Trail 기반 법적 면책권) | REQ-FUNC-020, 021, 022, 023, 024, 025, 030, 031, 032, 033 | REQ-NF-032, 033, 034, 035, 045 | TC-S1-001~010 |
-| **Story-2** (Triple Check Loop 기반 무오성 검증) | REQ-FUNC-010, 011, 012, 013, 014, 015, 016, 017 | REQ-NF-001, 030, 031 | TC-S2-001~010 |
-| **Story-3** (Self-Service 알림톡 루프) | REQ-FUNC-050, 051, 052, 053, 054, 055, 056 | REQ-NF-004, 025, 010 | TC-S3-001~008 |
-| **Story-4** (API First 플랫폼 연동) | REQ-FUNC-060, 061, 062, 063, 064, 065 | REQ-NF-005, 021, 007, 036 | TC-S4-001~008 |
-| **PRD F1** (OCR 추출 엔진 — Must) | REQ-FUNC-001, 002, 003, 004, 005 | REQ-NF-002 | TC-F1-001~006 |
-| **PRD F2** (공공 API/RPA 조회 — Must) | REQ-FUNC-011, 012, 013, 017 | REQ-NF-001, 024, 026 | TC-F2-001~006 |
-| **PRD F3** (병렬 캡처 + Audit Trail — Must) | REQ-FUNC-020, 021, 022, 023, 024, 025 | REQ-NF-023, 033, 035 | TC-F3-001~006 |
-| **PRD F4** (Triple Check Loop — Must) | REQ-FUNC-010, 014, 015, 016 | REQ-NF-030, 031 | TC-F4-001~005 |
-| **PRD F5** (감사 PDF 리포트 — Must) | REQ-FUNC-030, 031, 032, 033 | REQ-NF-003, 034 | TC-F5-001~004 |
-| **PRD S2** (Human-in-the-loop UI — Should) | REQ-FUNC-040, 041, 042, 043 | REQ-NF-044 | TC-S2UI-001~004 |
-| **PRD S3** (이미지 전처리 — Should) | REQ-FUNC-002 | REQ-NF-002 | TC-S3IMG-001~003 |
-| **PRD C1** (REST API 외부 연동 — Could) | REQ-FUNC-060~065 | REQ-NF-005, 021, 036, 062 | TC-C1-001~008 |
-| **PRD C2** (배치 처리 스케줄러 — Could) | REQ-FUNC-070, 071, 072 | REQ-NF-006, 060 | TC-C2-001~004 |
+| **Story-1** (Audit Trail 기반 법적 면책권) | REQ-FUNC-020, 021, 022, 023, 024, 025, 030, 031, 032, 033 | REQ-NF-032, 033, 034, 035, 045 | TC-S1-001 ~ 010 |
+| **Story-2** (Triple Check Loop 기반 무오성 검증) | REQ-FUNC-010, 011, 012, 013, 014, 015, 016, 017 | REQ-NF-001, 030, 031 | TC-S2-001 ~ 010 |
+| **Story-3** (Self-Service 알림톡 루프) | REQ-FUNC-050, 051, 052, 053, 054, 055, 056 | REQ-NF-004, 025, 010 | TC-S3-001 ~ 008 |
+| **Story-4** (API First 플랫폼 연동) | REQ-FUNC-060, 061, 062, 063, 064, 065 | REQ-NF-005, 021, 007, 036 | TC-S4-001 ~ 008 |
+| **PRD F1** (OCR 추출 엔진 — Must) | REQ-FUNC-001, 002, 003, 004, 005 | REQ-NF-002 | TC-F1-001 ~ 006 |
+| **PRD F2** (공공 API/RPA 조회 — Must) | REQ-FUNC-011, 012, 013, 017 | REQ-NF-001, 024, 026 | TC-F2-001 ~ 006 |
+| **PRD F3** (병렬 캡처 + Audit Trail — Must) | REQ-FUNC-020, 021, 022, 023, 024, 025 | REQ-NF-023, 033, 035 | TC-F3-001 ~ 006 |
+| **PRD F4** (Triple Check Loop — Must) | REQ-FUNC-010, 014, 015, 016 | REQ-NF-030, 031 | TC-F4-001 ~ 005 |
+| **PRD F5** (감사 PDF 리포트 — Must) | REQ-FUNC-030, 031, 032, 033 | REQ-NF-003, 034 | TC-F5-001 ~ 004 |
+| **PRD S2** (Human-in-the-loop UI — Should) | REQ-FUNC-040, 041, 042, 043 | REQ-NF-044 | TC-S2UI-001 ~ 004 |
+| **PRD S3** (이미지 전처리 — Should) | REQ-FUNC-002 | REQ-NF-002 | TC-S3IMG-001 ~ 003 |
+| **PRD C1** (REST API 외부 연동 — Could) | REQ-FUNC-060 ~ 065 | REQ-NF-005, 021, 036, 062 | TC-C1-001 ~ 008 |
+| **PRD C2** (배치 처리 스케줄러 — Could) | REQ-FUNC-070, 071, 072 | REQ-NF-006, 060 | TC-C2-001 ~ 004 |
 | **KPI-1** (서류 처리 속도 ≥ 4,000건/시간) | REQ-FUNC-070 | REQ-NF-006 | TC-KPI1-001 |
 | **KPI-2** (인건비 절감 ≤ 500만원) | — | REQ-NF-070, 071 | TC-KPI2-001 |
-| **KPI-3** (민원 전화 감소 ≤ 10%) | REQ-FUNC-050~056 | REQ-NF-004, 025 | TC-KPI3-001 |
+| **KPI-3** (민원 전화 감소 ≤ 10%) | REQ-FUNC-050 ~ 056 | REQ-NF-004, 025 | TC-KPI3-001 |
 | **KPI-4** (허위 서류 검출 ≥ 95%) | REQ-FUNC-010, 014 | REQ-NF-030, 031 | TC-KPI4-001 |
 | **KPI-5** (감사 리포트 자동 생성 100%) | REQ-FUNC-030, 031 | REQ-NF-032, 034 | TC-KPI5-001 |
 | **북극성 KPI** (Audit Trail 완료율 ≥ 99%) | REQ-FUNC-020, 021, 022 | REQ-NF-032, 056 | TC-NS-001 |
@@ -685,7 +685,7 @@ sequenceDiagram
 | `doc_type` | VARCHAR(50) | NOT NULL | 서류 유형 (DEGREE / CERTIFICATE / CAREER) |
 | `raw_file_path` | VARCHAR(500) | NOT NULL | 원본 파일 암호화 저장 경로 (AES-256) |
 | `ocr_extracted_json` | TEXT | | OCR 추출 구조화 필드 JSON |
-| `ocr_confidence_score` | FLOAT(5,2) | CHECK(0~100) | OCR 신뢰도 점수 (0~100) |
+| `ocr_confidence_score` | FLOAT(5,2) | CHECK(0 ~ 100) | OCR 신뢰도 점수 (0 ~ 100) |
 | `file_format` | VARCHAR(10) | NOT NULL | 파일 형식 (PDF / JPG / PNG) |
 | `uploaded_at` | DATETIME | NOT NULL | 업로드 일시 (UTC) |
 
@@ -699,7 +699,7 @@ sequenceDiagram
 | `status` | VARCHAR(30) | NOT NULL | 검증 상태 (PASS / FAIL / MANUAL_REVIEW / IN_PROGRESS) |
 | `agency_api_response` | TEXT | | 기관 API 원문 응답 JSON |
 | `discrepancy_detail` | TEXT | | 불일치 항목 상세 JSON |
-| `confidence_score` | FLOAT(5,2) | CHECK(0~100) | 최종 검증 신뢰도 점수 |
+| `confidence_score` | FLOAT(5,2) | CHECK(0 ~ 100) | 최종 검증 신뢰도 점수 |
 | `rpa_used` | BOOLEAN | DEFAULT false | RPA 폴백 사용 여부 |
 | `verified_at` | DATETIME | NOT NULL | 검증 완료 일시 (UTC) |
 | `reviewer_id` | VARCHAR(36) | FK → USER | 담당자 최종 승인자 ID (Human-in-the-loop) |
@@ -795,7 +795,7 @@ sequenceDiagram
     end
     Preprocessor->>OCR: 전처리된 이미지 전달
     OCR->>OCR: 필드 추출 (성명, 발급번호, 발급일자, 발급기관)
-    OCR->>OCR: 신뢰도 점수 산출 (0~100)
+    OCR->>OCR: 신뢰도 점수 산출 (0 ~ 100)
     OCR-->>DB: 구조화 JSON + 신뢰도 점수 저장 (DOCUMENT 테이블)
     alt 신뢰도 ≥ 80
         OCR-->>Portal: 추출 성공 응답 (json + score)
@@ -946,7 +946,7 @@ sequenceDiagram
 |---|---|---|---|---|---|
 | **Exp-1** | 병렬 캡처 기반 면책권 체감도 | A/B 테스트 n=각 50명 (공공기관 담당자) | 감사 대응 자신감 점수 (Likert 5점), 리포트 다운로드 횟수 | A그룹 평균 ≥ B그룹 + 1.0점 (95% 신뢰구간) | REQ-NF-032, 034 |
 | **Exp-2** | Self-Service 루프 민원 감소 효과 | Before-After 비교 (동일 기관, 동일 규모) | 담당자 수동 전화 건수, Self-Service 처리율(%), 재제출 완료 소요시간(시간) | 수동 개입 ≥ 90% 감소, 재제출 완료율 ≥ 85% | REQ-NF-004, 025 |
-| **Exp-3** | 처리 속도 및 비용 절감 PoC | PoC n=3 기관, 1,000~2,000건 실제 배치 | 전체 처리 시간(분), 건당 비용(원), 불일치 자동 감지율(%) | 시간 ≤ 60분/4,000건, 비용 ≤ 500만원, 감지율 ≥ 95% | REQ-NF-006, 070 |
+| **Exp-3** | 처리 속도 및 비용 절감 PoC | PoC n=3 기관, 1,000 ~ 2,000건 실제 배치 | 전체 처리 시간(분), 건당 비용(원), 불일치 자동 감지율(%) | 시간 ≤ 60분/4,000건, 비용 ≤ 500만원, 감지율 ≥ 95% | REQ-NF-006, 070 |
 | **Exp-4** | Triple Check Loop 정확도 | 위조 샘플 100건 블라인드 테스트 | 검출 결과 vs 실제 정답 비교 | 검출률 ≥ 95%, False Negative < 1% | REQ-NF-030, 031 |
 
 ### 경쟁 대안 대비 벤치마크 목표
@@ -954,9 +954,9 @@ sequenceDiagram
 | 비교 항목 | 단순 OCR 솔루션 (기준) | 본 솔루션 SRS 목표 | 연계 REQ-NF |
 |---|---|---|---|
 | 허위 서류 검출률 | ≤ 70% | ≥ 95% | REQ-NF-030 |
-| 처리 속도 (4,000건) | 5~7일 | ≤ 1시간 (배치) | REQ-NF-006 |
+| 처리 속도 (4,000건) | 5 ~ 7일 | ≤ 1시간 (배치) | REQ-NF-006 |
 | 건당 비용 | 약 2,500원 | ≤ 1,250원 | REQ-NF-070 |
-| 감사 리포트 생성 | 수동 2~4시간 | 자동 ≤ 3초 (500건 이하) | REQ-NF-003 |
+| 감사 리포트 생성 | 수동 2 ~ 4시간 | 자동 ≤ 3초 (500건 이하) | REQ-NF-003 |
 | 법적 증빙력 | 텍스트 데이터 | 병렬 캡처 이미지 (Audit Trail) | REQ-NF-032, 035 |
 
 ---

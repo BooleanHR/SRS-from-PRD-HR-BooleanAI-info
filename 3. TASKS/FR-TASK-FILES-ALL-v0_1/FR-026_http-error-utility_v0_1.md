@@ -11,7 +11,7 @@ source_task_id: C-010
 - **기능명:** [FR-026] HTTP 오류 응답 표준 유틸리티 함수
 - **Epic:** API Contract
 - **목적:** 400/401/403/404/422/500 HTTP 오류 응답을 일관된 JSON 형식으로 반환하는 유틸리티 함수를 구현한다. 모든 API 엔드포인트에서 동일한 에러 포맷을 사용하여 클라이언트 측 에러 핸들링을 단순화한다.
-- **설계 원칙:** SRS §3.7 오류 응답 표준 (L359~366).
+- **설계 원칙:** SRS §3.7 오류 응답 표준 (L359 ~ 366).
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.7 오류 응답 표준`](../SRS-HR-AI-Verification-v1.1.md)
@@ -68,7 +68,7 @@ source_task_id: C-010
 
 ## :checkered_flag: Definition of Done (DoD)
 - [ ] `src/lib/errors.ts` 파일 존재
-- [ ] 6개 HTTP 상태 코드(400~500) 처리 함수 구현
+- [ ] 6개 HTTP 상태 코드(400 ~ 500) 처리 함수 구현
 - [ ] ApiError 인터페이스 정의
 
 ## :construction: Dependencies & Blockers

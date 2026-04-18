@@ -11,11 +11,11 @@ source_task_id: T-016
 - **기능명:** [FR-106] NOTIFICATION DRAFT creation test
 - **Epic:** Test
 - **목적:** Tests FAIL confirmation -> status=DRAFT, is_selected=false, discrepancy_items JSON, required_documents included.
-- **설계 원칙:** SRS REQ-FUNC-100~102
+- **설계 원칙:** SRS REQ-FUNC-100 ~ 102
 - **복잡도:** M
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-100~102`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-100 ~ 102`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic T`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: T-016
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-100~102에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-100 ~ 102에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

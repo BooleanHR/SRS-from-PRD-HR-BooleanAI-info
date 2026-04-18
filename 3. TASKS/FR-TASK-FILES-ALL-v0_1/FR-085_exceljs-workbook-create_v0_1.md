@@ -11,11 +11,11 @@ source_task_id: N-002
 - **기능명:** [FR-085] exceljs workbook creation
 - **Epic:** Excel Export
 - **목적:** Creates xlsx with 8 columns: exam number / name / submitted filename / doc type / verification result / method / mismatch detail / notes. Applies multi-verification criteria.
-- **설계 원칙:** SRS REQ-FUNC-070~072
+- **설계 원칙:** SRS REQ-FUNC-070 ~ 072
 - **복잡도:** H
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-070~072`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-070 ~ 072`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic N`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: N-002
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-070~072에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-070 ~ 072에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

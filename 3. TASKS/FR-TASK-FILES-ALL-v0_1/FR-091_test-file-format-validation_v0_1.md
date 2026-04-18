@@ -11,7 +11,7 @@ source_task_id: T-001
 - **기능명:** [FR-091] File format validation test
 - **Epic:** Test
 - **목적:** Tests PDF/JPG/PNG pass, DOCX/HEIC/BMP/TIFF conversion branch, HWP->422, 20MB exceeded->422.
-- **설계 원칙:** SRS REQ-FUNC-005, 080~083
+- **설계 원칙:** SRS REQ-FUNC-005, 080 ~ 083
 - **복잡도:** M
 
 ## :link: References (Spec & Context)

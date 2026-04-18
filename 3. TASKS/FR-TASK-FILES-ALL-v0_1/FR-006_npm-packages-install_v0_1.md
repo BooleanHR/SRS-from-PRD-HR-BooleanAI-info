@@ -13,7 +13,7 @@ source_task_id: A-006
 - **기능명:** [FR-006] npm 패키지 일괄 설치
 - **Epic:** Scaffolding (프로젝트 초기 셋업)
 - **목적:** MVP 구현에 필요한 핵심 npm 패키지(ai, @ai-sdk/google, pdf-lib, exceljs, sharp, resend, swr 등)를 일괄 설치하여, 이후 개발 태스크에서 별도 패키지 설치 없이 즉시 코드를 작성할 수 있는 환경을 확보한다.
-- **설계 원칙:** SRS §2.2~2.3 C-TEC-005~010에 따라 **허용된 라이브러리만** 설치하며, 허용 목록 외 라이브러리 설치를 금지한다.
+- **설계 원칙:** SRS §2.2 ~ 2.3 C-TEC-005 ~ 010에 따라 **허용된 라이브러리만** 설치하며, 허용 목록 외 라이브러리 설치를 금지한다.
 
 ## :link: References (Spec & Context)
 > :bulb: AI Agent & Dev Note: 작업 시작 전 아래 문서를 반드시 먼저 Read/Evaluate 할 것.
@@ -103,7 +103,7 @@ source_task_id: A-006
 - **Then:** express, fastify, puppeteer, playwright, drizzle-orm, typeorm 등 금지 패키지가 없어야 한다.
 
 ## :gear: Technical & Non-Functional Constraints
-- **스택 제약:** C-TEC-005~010에 정의된 라이브러리만 사용. 대안 라이브러리 임의 추가 금지.
+- **스택 제약:** C-TEC-005 ~ 010에 정의된 라이브러리만 사용. 대안 라이브러리 임의 추가 금지.
 - **sharp 주의:** Vercel Serverless에서 네이티브 바이너리 사용. `next.config.ts`에 `serverExternalPackages` 설정 필수.
 - **번들 분리:** `pdf-lib`, `exceljs`, `sharp`는 모두 서버 사이드 전용. 클라이언트 번들에 포함되지 않도록 `"use server"` 함수 내에서만 import.
 - **libreoffice-convert 한계:** Vercel 서버리스 환경에서 실행 불가 가능성 높음. PoC에서는 DOCX 파일 재제출 안내로 대체 가능.

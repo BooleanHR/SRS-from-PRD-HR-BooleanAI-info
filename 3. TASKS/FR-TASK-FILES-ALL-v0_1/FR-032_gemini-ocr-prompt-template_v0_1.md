@@ -38,7 +38,7 @@ source_task_id: D-006
     issueNumber: z.string().describe('발급번호 또는 문서확인번호'),
     issueDate: z.string().describe('발급일자 (YYYY-MM-DD)'),
     issuerName: z.string().describe('발급기관명'),
-    confidenceScore: z.number().min(0).max(100).describe('OCR 신뢰도 (0~100)'),
+    confidenceScore: z.number().min(0).max(100).describe('OCR 신뢰도 (0 ~ 100)'),
     docCategory: z.string().describe('서류 종류: 졸업증명서, 자격증, 경력증명서 등'),
   });
   ```
@@ -51,7 +51,7 @@ source_task_id: D-006
     3. 발급일자 (issueDate) — YYYY-MM-DD 형식
     4. 발급기관명 (issuerName)
     5. 이 서류의 종류를 분류해주세요 (docCategory)
-    6. 추출 신뢰도를 0~100 사이로 평가해주세요 (confidenceScore)`;
+    6. 추출 신뢰도를 0 ~ 100 사이로 평가해주세요 (confidenceScore)`;
     // doc_type별 추가 지시
     return basePrompt;
   }

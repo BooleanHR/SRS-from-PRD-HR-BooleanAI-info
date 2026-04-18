@@ -11,11 +11,11 @@ source_task_id: I-002
 - **기능명:** [FR-055] Layer 2: OCR vs Public API comparison
 - **Epic:** Triple Check
 - **목적:** Validates OCR values against Gov24 API. 10-second timeout triggers Mock fallback with mock_used=true. HRDK uses mockHrdkResponse().
-- **설계 원칙:** SRS REQ-FUNC-010~012, Seq-01
+- **설계 원칙:** SRS REQ-FUNC-010 ~ 012, Seq-01
 - **복잡도:** H
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-010~012`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-010 ~ 012`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic I`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: I-002
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-010~012에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-010 ~ 012에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

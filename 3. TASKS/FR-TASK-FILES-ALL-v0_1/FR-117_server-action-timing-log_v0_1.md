@@ -11,11 +11,11 @@ source_task_id: U-001
 - **기능명:** [FR-117] Server Action execution time logging
 - **Epic:** Performance
 - **목적:** Logs upload->OCR (p95<=20s), Triple Check (p95<=30s), approve (p95<=2s) timestamps.
-- **설계 원칙:** SRS REQ-NF-001~002, 005
+- **설계 원칙:** SRS REQ-NF-001 ~ 002, 005
 - **복잡도:** M
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-NF-001~002`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-NF-001 ~ 002`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic U`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: U-001
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-NF-001~002에 명시된 AC(GWT) 기반 검증
+- SRS REQ-NF-001 ~ 002에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

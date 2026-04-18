@@ -11,11 +11,11 @@ source_task_id: UI-050
 - **기능명:** [FR-089] Statistics card component UI
 - **Epic:** Dashboard Stats
 - **목적:** Displays 7 metrics in shadcn/ui Cards + SWR 5-second polling auto-refresh. src/components/dashboard/stats-cards.tsx.
-- **설계 원칙:** SRS REQ-FUNC-060~061
+- **설계 원칙:** SRS REQ-FUNC-060 ~ 061
 - **복잡도:** M
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-060~061`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-060 ~ 061`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic O`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: UI-050
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-060~061에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-060 ~ 061에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

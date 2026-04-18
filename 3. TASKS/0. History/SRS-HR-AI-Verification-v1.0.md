@@ -66,7 +66,7 @@
 | REST API 외부 연동 (ATS 플랫폼 SDK, 개발자 포털) | Phase 2 |
 | ORGANIZATION 멀티테넌시 | Phase 2 |
 | False Negative 분기별 샘플링 배치 | 운영 단계 |
-| ISMS-P / CSAP 인증 | Phase 2~3 |
+| ISMS-P / CSAP 인증 | Phase 2 ~ 3 |
 | 해외 학위 검증 | Phase 3 |
 | 블록체인/DID 연동 | Phase 3 |
 
@@ -100,7 +100,7 @@
 | 항목 | 선택 이유 | 알려진 제한사항 |
 |---|---|---|
 | Next.js App Router | 풀스택 단일 파일; AI 코드 생성 친화적 | Vercel Serverless 실행 시간 60초 제한 (Pro 기준) |
-| Gemini Vision API | OCR + 이미지 이해 통합; 무료 할당량 충분 | 응답 시간 편차 있음 (3~15초) |
+| Gemini Vision API | OCR + 이미지 이해 통합; 무료 할당량 충분 | 응답 시간 편차 있음 (3 ~ 15초) |
 | Supabase | 무료 플랜 충분; RLS로 RBAC 구현 용이 | 무료 플랜 DB 크기 500MB 제한 |
 | Vercel AI SDK | Next.js와 완벽 통합; 타입 안전 | Gemini 스트리밍 일부 제한 |
 | shadcn/ui | 복사 붙여넣기 방식; 커스텀 용이 | 초기 설치 설정 필요 |
@@ -118,10 +118,10 @@
 
 | 문제 항목 | 실패 KPI |
 |---|---|
-| 수기 검증 비용 과다 | 4,000건 공채 기준 인건비 900~1,000만원 |
+| 수기 검증 비용 과다 | 4,000건 공채 기준 인건비 900 ~ 1,000만원 |
 | 허위 기재 미검출 | 구직자 약 20%가 허위 사실 기재 |
 | 감사 대응 증빙 부재 | 수기 확인 기반으로 객관적 로그 제출 불가 |
-| 담당자 민원 전화 폭주 | 업무의 70~90% 점유 |
+| 담당자 민원 전화 폭주 | 업무의 70 ~ 90% 점유 |
 
 ## 3.2 Scope (범위)
 
@@ -148,7 +148,7 @@
 | OS-04 | ATS 외부 REST API / SDK / 개발자 포털 | Phase 2 |
 | OS-05 | 배치 처리 스케줄러 (4,000건/시간) | Phase 2 |
 | OS-06 | ORGANIZATION 멀티테넌시 | Phase 2 |
-| OS-07 | ISMS-P / CSAP 인증 | Phase 2~3 |
+| OS-07 | ISMS-P / CSAP 인증 | Phase 2 ~ 3 |
 | OS-08 | 카카오 알림톡 실발송 | 템플릿 심사 대기; 대시보드 표시로 대체 |
 | OS-09 | 해외 학위 검증 / 블록체인 DID | Phase 3 |
 
@@ -279,7 +279,7 @@ graph LR
 |---|---|---|---|
 | 채용 대행사 담당자 | 비개발자 (웹 사용 가능) | 채용 시즌 집중 | 직관적 Upload → 결과 확인 UI |
 | 채용 대행사 팀장/관리자 | 비개발자 | 결과 검토 시 | 승인/반려 버튼 + PDF 다운로드 |
-| 감사자 | 비개발자 | 연 1~2회 | Audit Trail 읽기 전용 조회 |
+| 감사자 | 비개발자 | 연 1 ~ 2회 | Audit Trail 읽기 전용 조회 |
 | 개발자 (PoC 구현자) | 입문자 + 바이브코딩 | 구현·유지보수 | Next.js + Supabase + Gemini |
 
 ---
@@ -896,7 +896,7 @@ classDiagram
 |---|---|---|---|
 | REQ-FUNC-001 | 시스템은 PDF, JPG, PNG 형식(최대 20MB) 서류 파일을 Server Action으로 수신하여 Supabase Storage에 저장하고 Gemini Vision OCR을 실행해야 한다. | Must | **Given** 담당자가 15MB JPG 업로드 **When** Server Action 실행 **Then** 파일 저장 완료 + OCR 시작 |
 | REQ-FUNC-002 | Gemini Vision API는 `generateObject()`를 사용해 핵심 필드(성명, 발급번호, 발급일자, 발급기관명)를 구조화 JSON으로 추출해야 한다. 처리 p95 ≤ 15초. | Must | **Given** 학위증명서 JPG **When** Gemini Vision 실행 **Then** 4개 필드 포함 JSON 반환; p95 ≤ 15초 |
-| REQ-FUNC-003 | OCR 결과는 0~100 범위의 `ocr_confidence_score`를 포함하여 DOCUMENT 테이블에 저장해야 한다. | Must | **Given** OCR 완료 **When** 결과 저장 **Then** confidence_score 포함 DB 저장 확인 |
+| REQ-FUNC-003 | OCR 결과는 0 ~ 100 범위의 `ocr_confidence_score`를 포함하여 DOCUMENT 테이블에 저장해야 한다. | Must | **Given** OCR 완료 **When** 결과 저장 **Then** confidence_score 포함 DB 저장 확인 |
 | REQ-FUNC-004 | OCR 신뢰도 < 70(PoC 임계치)인 건은 status=MANUAL_REVIEW로 저장하고 담당자 대시보드에 플래그 표시. | Must | **Given** 신뢰도 65 산출 **When** 임계치 비교 **Then** MANUAL_REVIEW 저장; 대시보드 표시 |
 | REQ-FUNC-005 | 지원되지 않는 파일 형식(.bmp, .docx 등) 또는 20MB 초과 시 HTTP 422 + 오류 메시지를 반환해야 한다. | Must | **Given** .bmp 파일 업로드 **When** 형식 검증 **Then** HTTP 422 + 오류 메시지 |
 
@@ -959,12 +959,12 @@ classDiagram
 | ID | 요구사항 | SLO (PoC 기준) | 측정 방법 |
 |---|---|---|---|
 | REQ-NF-001 | 서류 업로드 → OCR 완료 응답 시간 | p95 ≤ 20초 (Gemini Vision 포함) | Server Action 실행 시간 로그 |
-| REQ-NF-002 | Triple Check Loop 전체 처리 시간 | p95 ≤ 30초 (Mock 포함) | 시작~완료 타임스탬프 차 |
-| REQ-NF-003 | PDF 리포트 생성 (100건 이하) | p95 ≤ 10초 | 생성 시작~완료 타임스탬프 차 |
+| REQ-NF-002 | Triple Check Loop 전체 처리 시간 | p95 ≤ 30초 (Mock 포함) | 시작 ~ 완료 타임스탬프 차 |
+| REQ-NF-003 | PDF 리포트 생성 (100건 이하) | p95 ≤ 10초 | 생성 시작 ~ 완료 타임스탬프 차 |
 | REQ-NF-004 | 대시보드 페이지 로드 | p95 ≤ 3초 | Vercel Analytics |
 | REQ-NF-005 | 승인/반려 Server Action 응답 | p95 ≤ 2초 | Server Action 실행 시간 |
 
-> **⚠️ PoC 주의:** Vercel Pro 기준 Serverless 함수 최대 실행 60초. OCR(15초) + API 조회(10초) + DB 저장(2초) = ~27초로 안전 마진 내에 있으나, 느린 응답 시 사용자 안내 필요.
+> **⚠️ PoC 주의:** Vercel Pro 기준 Serverless 함수 최대 실행 60초. OCR(15초) + API 조회(10초) + DB 저장(2초) =  ~ 27초로 안전 마진 내에 있으나, 느린 응답 시 사용자 안내 필요.
 
 ### 신뢰성 / 가용성
 
@@ -1002,28 +1002,28 @@ classDiagram
 
 | Story / PRD 기능 | REQ-FUNC ID | REQ-NF ID | Test 확인 방법 |
 |---|---|---|---|
-| **Story-1** (Audit Trail 법적 면책권) | REQ-FUNC-020~023, 030~032, 040~042 | REQ-NF-021, 025, 026 | Audit Trail DB 레코드 + PDF 다운로드 수동 확인 |
-| **Story-2** (Triple Check Loop) | REQ-FUNC-001~005, 010~014 | REQ-NF-001, 002, 011 | 의도적 불일치 데이터로 FAIL 판정 확인 |
+| **Story-1** (Audit Trail 법적 면책권) | REQ-FUNC-020 ~ 023, 030 ~ 032, 040 ~ 042 | REQ-NF-021, 025, 026 | Audit Trail DB 레코드 + PDF 다운로드 수동 확인 |
+| **Story-2** (Triple Check Loop) | REQ-FUNC-001 ~ 005, 010 ~ 014 | REQ-NF-001, 002, 011 | 의도적 불일치 데이터로 FAIL 판정 확인 |
 | **Story-3** (Self-Service 알림) | REQ-FUNC-050, 051 | REQ-NF-004 | 이메일 수신 확인 (Resend Dashboard) |
-| **PRD F1** (OCR Must) | REQ-FUNC-001~005 | REQ-NF-001 | 실제 서류 이미지 OCR 결과 확인 |
-| **PRD F2** (API 조회 Must) | REQ-FUNC-010~013 | REQ-NF-002 | Mock flag + 실제 API 응답 분기 확인 |
-| **PRD F3** (Audit Trail Must) | REQ-FUNC-020~023 | REQ-NF-025, 026 | DB 레코드 직접 확인 |
+| **PRD F1** (OCR Must) | REQ-FUNC-001 ~ 005 | REQ-NF-001 | 실제 서류 이미지 OCR 결과 확인 |
+| **PRD F2** (API 조회 Must) | REQ-FUNC-010 ~ 013 | REQ-NF-002 | Mock flag + 실제 API 응답 분기 확인 |
+| **PRD F3** (Audit Trail Must) | REQ-FUNC-020 ~ 023 | REQ-NF-025, 026 | DB 레코드 직접 확인 |
 | **PRD F4** (Triple Check Must) | REQ-FUNC-010, 013, 014 | REQ-NF-002 | PASS/FAIL 판정 로직 단위 테스트 |
-| **PRD F5** (Human-in-the-loop Should) | REQ-FUNC-030~033 | REQ-NF-005 | 승인/반려 클릭 후 DB 상태 확인 |
-| **PRD F6** (PDF 리포트 Must) | REQ-FUNC-040~042 | REQ-NF-003 | PDF 파일 내용 수동 확인 |
+| **PRD F5** (Human-in-the-loop Should) | REQ-FUNC-030 ~ 033 | REQ-NF-005 | 승인/반려 클릭 후 DB 상태 확인 |
+| **PRD F6** (PDF 리포트 Must) | REQ-FUNC-040 ~ 042 | REQ-NF-003 | PDF 파일 내용 수동 확인 |
 | **PoC Mock 투명성** | REQ-FUNC-011, 012, 042 | REQ-NF-012 | mock_used=true 건 PDF에 표시 확인 |
 
 ### 역방향 추적
 
 | REQ-FUNC ID | 연계 Story | 연계 PRD 기능 |
 |---|---|---|
-| REQ-FUNC-001~005 | Story-2 | F1 (OCR) |
-| REQ-FUNC-010~014 | Story-2 | F2 (API), F4 (Triple Check) |
-| REQ-FUNC-020~023 | Story-1 | F3 (Audit Trail) |
-| REQ-FUNC-030~033 | Story-1, Story-2 | F5 (Human-in-the-loop) |
-| REQ-FUNC-040~042 | Story-1 | F6 (PDF 리포트) |
-| REQ-FUNC-050~051 | Story-3 | F7 (알림) |
-| REQ-FUNC-060~061 | — | F9 (통계 대시보드) |
+| REQ-FUNC-001 ~ 005 | Story-2 | F1 (OCR) |
+| REQ-FUNC-010 ~ 014 | Story-2 | F2 (API), F4 (Triple Check) |
+| REQ-FUNC-020 ~ 023 | Story-1 | F3 (Audit Trail) |
+| REQ-FUNC-030 ~ 033 | Story-1, Story-2 | F5 (Human-in-the-loop) |
+| REQ-FUNC-040 ~ 042 | Story-1 | F6 (PDF 리포트) |
+| REQ-FUNC-050 ~ 051 | Story-3 | F7 (알림) |
+| REQ-FUNC-060 ~ 061 | — | F9 (통계 대시보드) |
 
 ---
 
@@ -1039,16 +1039,16 @@ classDiagram
 | 2 | Prisma 스키마 정의 + DB 마이그레이션 (SQLite) | 0.5일 | ⭐⭐ |
 | 3 | Supabase Auth + Middleware RBAC 설정 | 1일 | ⭐⭐ |
 | 4 | 서류 업로드 UI + Supabase Storage 연동 | 1일 | ⭐⭐ |
-| 5 | Gemini Vision OCR Server Action 구현 | 1~2일 | ⭐⭐⭐ |
+| 5 | Gemini Vision OCR Server Action 구현 | 1 ~ 2일 | ⭐⭐⭐ |
 | 6 | Triple Check Loop 로직 + Mock 응답 구현 | 2일 | ⭐⭐⭐ |
 | 7 | Audit Trail 자동 생성 로직 | 1일 | ⭐⭐ |
 | 8 | 대시보드 + SWR polling 구현 | 1일 | ⭐⭐ |
 | 9 | Human-in-the-loop 승인/반려 UI | 1일 | ⭐⭐ |
-| 10 | pdf-lib PDF 리포트 생성 | 1~2일 | ⭐⭐⭐ |
+| 10 | pdf-lib PDF 리포트 생성 | 1 ~ 2일 | ⭐⭐⭐ |
 | 11 | Resend 이메일 알림 연동 | 0.5일 | ⭐ |
 | 12 | Vercel 배포 + Supabase PostgreSQL 전환 | 0.5일 | ⭐⭐ |
 
-**총 예상 소요: 2~3주 (바이브코딩 기준)**
+**총 예상 소요: 2 ~ 3주 (바이브코딩 기준)**
 
 ### AI 프롬프트 작성 시 주의사항
 
@@ -1072,11 +1072,11 @@ classDiagram
 |---|---|---|
 | Vercel | Hobby (무료) | $0 |
 | Supabase | Free (500MB DB, 1GB Storage) | $0 |
-| Google Gemini API | Free tier (분당 60 요청) | $0~$5 |
+| Google Gemini API | Free tier (분당 60 요청) | $0 ~ $5 |
 | Resend | Free (100 이메일/일) | $0 |
-| **총계** | | **$0~$5/월** |
+| **총계** | | **$0 ~ $5/월** |
 
-> **Phase 2 전환 시 예상 비용:** Vercel Pro($20) + Supabase Pro($25) + Gemini API(사용량 기반) = $50~$100/월
+> **Phase 2 전환 시 예상 비용:** Vercel Pro($20) + Supabase Pro($25) + Gemini API(사용량 기반) = $50 ~ $100/월
 
 ---
 

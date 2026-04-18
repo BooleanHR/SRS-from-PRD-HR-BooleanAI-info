@@ -13,7 +13,7 @@ source_task_id: B-004
 - **기능명:** [FR-010] Applicant 모델 정의
 - **Epic:** DB Schema
 - **목적:** 지원자 정보를 관리할 **Applicant 모델**을 정의한다. v1.1에서 `exam_number`(수험번호) 필드가 추가되어 공공기관의 수험번호 기반 파일 명명을 지원한다.
-- **설계 원칙:** SRS §3.8 (L551~565). Batch → Applicant 1:N 관계.
+- **설계 원칙:** SRS §3.8 (L551 ~ 565). Batch → Applicant 1:N 관계.
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — Applicant`](../SRS-HR-AI-Verification-v1.1.md)

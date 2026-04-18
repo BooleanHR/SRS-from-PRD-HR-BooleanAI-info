@@ -36,7 +36,7 @@ source_task_id: P-001
 - [ ] npm run build 에러 0건
 
 ## :construction: Dependencies & Blockers
-- **Depends on:** F-001~F-007, G-001~G-004, H-001~H-003, I-001~I-005, J-001, L-001
+- **Depends on:** F-001 ~ F-007, G-001 ~ G-004, H-001 ~ H-003, I-001 ~ I-005, J-001, L-001
 - **Blocks:** T-023, U-001, U-005
 
 ---

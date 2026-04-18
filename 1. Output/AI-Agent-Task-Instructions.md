@@ -163,7 +163,7 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
 ### Task 0-3. Supabase Auth + Middleware RBAC 설정
 
-**SRS 근거:** C-TEC-003, REQ-NF-020~024, ADR-004  
+**SRS 근거:** C-TEC-003, REQ-NF-020 ~ 024, ADR-004  
 **예상 소요:** 1일 | **난이도:** ⭐⭐
 
 ```
@@ -257,8 +257,8 @@ export async function uploadAndVerify(formData: FormData) {
 
 ### Task 1-2. Gemini Vision OCR Server Action 구현
 
-**SRS 근거:** REQ-FUNC-001~005, C-TEC-005, C-TEC-006  
-**예상 소요:** 1~2일 | **난이도:** ⭐⭐⭐
+**SRS 근거:** REQ-FUNC-001 ~ 005, C-TEC-005, C-TEC-006  
+**예상 소요:** 1 ~ 2일 | **난이도:** ⭐⭐⭐
 
 ```
 [Task 1-2 프롬프트]
@@ -279,7 +279,7 @@ const degreeSchema = z.object({
   issuerName: z.string().describe("발급기관명"),
   degreeName: z.string().optional().describe("학위명"),
   major: z.string().optional().describe("전공"),
-  confidenceScore: z.number().min(0).max(100).describe("전체 OCR 신뢰도 점수 0~100"),
+  confidenceScore: z.number().min(0).max(100).describe("전체 OCR 신뢰도 점수 0 ~ 100"),
 });
 
 // 자격증, 경력증명서 스키마도 유사하게 정의
@@ -304,7 +304,7 @@ export async function extractFieldsFromImage(
           {
             type: 'text',
             text: `이 ${docType} 이미지에서 다음 필드를 정확히 추출해줘. 
-                   각 필드가 얼마나 명확히 읽히는지를 기반으로 전체 신뢰도 점수(0~100)를 산출해줘.
+                   각 필드가 얼마나 명확히 읽히는지를 기반으로 전체 신뢰도 점수(0 ~ 100)를 산출해줘.
                    이미지가 흐리거나 글자가 불명확하면 신뢰도를 낮게 산출해줘.`,
           },
         ],
@@ -328,7 +328,7 @@ export async function extractFieldsFromImage(
 ## 3. 처리 시간 제약
 - Gemini Vision API 응답: p95 ≤ 15초 예상
 - Vercel Serverless 함수 최대 실행 60초 (Pro 기준)
-- OCR(15초) + API 조회(10초) + DB 저장(2초) = ~27초 안전 마진 내
+- OCR(15초) + API 조회(10초) + DB 저장(2초) =  ~ 27초 안전 마진 내
 
 [완료 기준]
 - 실제 학위증명서 이미지 업로드 → JSON 반환 (성명, 발급번호, 발급일자, 발급기관명)
@@ -340,7 +340,7 @@ export async function extractFieldsFromImage(
 
 ### Task 1-3. Triple Check Loop 구현 + Mock 응답
 
-**SRS 근거:** REQ-FUNC-010~014, Seq-01 (Step 7~17)  
+**SRS 근거:** REQ-FUNC-010 ~ 014, Seq-01 (Step 7 ~ 17)  
 **예상 소요:** 2일 | **난이도:** ⭐⭐⭐
 
 ```
@@ -419,7 +419,7 @@ function finalJudgment(
 
 ### Task 1-4. Audit Trail 자동 생성
 
-**SRS 근거:** REQ-FUNC-020~023, ADR-006  
+**SRS 근거:** REQ-FUNC-020 ~ 023, ADR-006  
 **예상 소요:** 1일 | **난이도:** ⭐⭐
 
 ```
@@ -503,7 +503,7 @@ export async function blockModification(trailId: string) {
 
 ### Task 1-5. Human-in-the-loop 승인/반려 UI
 
-**SRS 근거:** REQ-FUNC-030~033, Seq-02  
+**SRS 근거:** REQ-FUNC-030 ~ 033, Seq-02  
 **예상 소요:** 1일 | **난이도:** ⭐⭐
 
 ```
@@ -564,8 +564,8 @@ export async function rejectJob(jobId: string, reviewerId: string, reason: strin
 
 ### Task 1-6. PDF 리포트 자동 생성
 
-**SRS 근거:** REQ-FUNC-040~042, Seq-03  
-**예상 소요:** 1~2일 | **난이도:** ⭐⭐⭐
+**SRS 근거:** REQ-FUNC-040 ~ 042, Seq-03  
+**예상 소요:** 1 ~ 2일 | **난이도:** ⭐⭐⭐
 
 ```
 [Task 1-6 프롬프트]
@@ -629,7 +629,7 @@ export async function GET(req: Request, { params }: { params: { batchId: string 
 
 ### Task 2-1. 불일치 이메일 알림 (Resend API)
 
-**SRS 근거:** REQ-FUNC-050~051  
+**SRS 근거:** REQ-FUNC-050 ~ 051  
 **예상 소요:** 0.5일 | **난이도:** ⭐
 
 ```
@@ -673,7 +673,7 @@ export async function sendFailNotification(jobId: string) {
 
 ### Task 2-2. 대시보드 통계 (SWR Polling)
 
-**SRS 근거:** REQ-FUNC-060~061, ADR-007  
+**SRS 근거:** REQ-FUNC-060 ~ 061, ADR-007  
 **예상 소요:** 1일 | **난이도:** ⭐⭐
 
 ```
@@ -695,7 +695,7 @@ export async function GET(req: Request) {
 ```
 
 ## 2. 대시보드 통계 컴포넌트 (src/components/dashboard-stats.tsx)
-- shadcn/ui Card 4~5개 가로 배치:
+- shadcn/ui Card 4 ~ 5개 가로 배치:
   - 총 검증 건수
   - PASS 건수 (녹색)
   - FAIL 건수 (빨간색)
@@ -851,11 +851,11 @@ graph TD
 
 | Phase | Task 수 | 예상 소요 | 난이도 범위 |
 |---|---|---|---|
-| Phase 0: 초기 설정 | 3개 | 2일 | ⭐~⭐⭐ |
-| Phase 1: 핵심 기능 | 6개 | 7~9일 | ⭐⭐~⭐⭐⭐ |
-| Phase 2: 보조 기능 | 2개 | 1.5일 | ⭐~⭐⭐ |
+| Phase 0: 초기 설정 | 3개 | 2일 | ⭐ ~ ⭐⭐ |
+| Phase 1: 핵심 기능 | 6개 | 7 ~ 9일 | ⭐⭐ ~ ⭐⭐⭐ |
+| Phase 2: 보조 기능 | 2개 | 1.5일 | ⭐ ~ ⭐⭐ |
 | Phase 3: 배포·검증 | 2개 | 1.5일 | ⭐⭐ |
-| **합계** | **13개 Task** | **12~15일 (2~3주)** | |
+| **합계** | **13개 Task** | **12 ~ 15일 (2 ~ 3주)** | |
 
 ---
 

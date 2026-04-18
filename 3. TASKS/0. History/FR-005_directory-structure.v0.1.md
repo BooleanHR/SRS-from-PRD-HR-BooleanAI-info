@@ -21,7 +21,7 @@ source_task_id: A-005
   - 컴포넌트: Server Actions(비즈니스 로직), Route Handlers(API), Middleware(Auth), Vercel AI SDK, sharp, exceljs, 파일 자동 명명 유틸리티
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.12 Class Diagram`](../SRS-HR-AI-Verification-v1.1.md)
   - 서비스: VerificationService, GeminiOcrService, FileConversionService, FileNamingService, AgencyApiClient, AuditTrailService, NotificationService, ReportService, PollService
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§2.1 C-TEC-001~002`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§2.1 C-TEC-001 ~ 002`](../SRS-HR-AI-Verification-v1.1.md)
   - 단일 Next.js 풀스택 — Server Actions / Route Handlers만 사용
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.7 API Overview`](../SRS-HR-AI-Verification-v1.1.md)
   - API 경로: `/api/verifications`, `/api/reports`, `/api/notifications`, `/api/dashboard`
@@ -94,7 +94,7 @@ src/
 │   ├── resend.ts                # Resend API 클라이언트
 │   ├── agency-api.ts            # 정부24 API 클라이언트 + Mock 폴백
 │   ├── mock-responses.ts        # Mock 응답 함수 (HRDK, RPA 등)
-│   ├── errors.ts                # HTTP 오류 응답 표준 유틸리티 (400~500)
+│   ├── errors.ts                # HTTP 오류 응답 표준 유틸리티 (400 ~ 500)
 │   ├── masking.ts               # 개인정보 마스킹 유틸리티 (홍○○, 010-****-1234)
 │   ├── hash.ts                  # SHA-256 해시 유틸리티 (Audit Trail timestamp_hash)
 │   └── constants.ts             # 상수 정의 (OCR 임계치 70, 보존기간 5년 등)
@@ -190,7 +190,7 @@ prisma/
 ## :test_tube: Acceptance Criteria (BDD/GWT)
 
 **Scenario 1: 핵심 디렉토리 존재**
-- **Given:** FR-001~004가 완료된 Next.js 프로젝트
+- **Given:** FR-001 ~ 004가 완료된 Next.js 프로젝트
 - **When:** `src/` 디렉토리를 확인
 - **Then:** `app/`, `actions/`, `lib/`, `types/`, `components/`, `hooks/` 6개 최상위 디렉토리가 존재해야 한다.
 
@@ -255,9 +255,9 @@ prisma/
 - **Depends on:** FR-001 (A-001: Next.js 프로젝트 생성 완료)
 - **Blocks:**
   - A-006 (npm 패키지 일괄 설치 — 디렉토리 구조 확정 후 진행 권장)
-  - B-001~B-010 (Prisma 스키마 → `prisma/schema.prisma` 위치 확정)
-  - C-001~C-010 (API 계약 → `src/types/` 위치 확정)
-  - 이후 모든 Logic 태스크 (Epic E~P) — 파일 배치 위치 참조
+  - B-001 ~ B-010 (Prisma 스키마 → `prisma/schema.prisma` 위치 확정)
+  - C-001 ~ C-010 (API 계약 → `src/types/` 위치 확정)
+  - 이후 모든 Logic 태스크 (Epic E ~ P) — 파일 배치 위치 참조
 
 ---
 *Document Version: v0.1 (초안) | Source: TASK-LIST A-005 | SRS: v1.1*

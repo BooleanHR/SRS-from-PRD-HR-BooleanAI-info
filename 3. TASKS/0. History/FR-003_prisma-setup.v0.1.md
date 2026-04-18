@@ -13,7 +13,7 @@ source_task_id: A-003
 - **기능명:** [FR-003] Prisma 초기 설정 (SQLite 로컬 기준 datasource)
 - **Epic:** Scaffolding (프로젝트 초기 셋업)
 - **목적:** 시스템의 데이터 영속 계층인 **Prisma ORM**을 설정하고, 로컬 개발 환경에서 **SQLite**로 즉시 실행 가능한 상태를 만든다. 배포 시 환경변수(`DATABASE_URL`)만 교체하여 **Supabase PostgreSQL**로 무중단 전환할 수 있는 듀얼 전략을 확보한다.
-- **설계 원칙:** SRS §2.1 C-TEC-003에 따라 JSON 타입 컬럼은 `Text`로 대체하여 SQLite/PostgreSQL 간 호환성을 유지한다. 본 태스크는 Prisma 설정 및 초기 마이그레이션까지만 포함하며, 개별 모델 정의는 별도 태스크(B-001~B-010)에서 수행한다.
+- **설계 원칙:** SRS §2.1 C-TEC-003에 따라 JSON 타입 컬럼은 `Text`로 대체하여 SQLite/PostgreSQL 간 호환성을 유지한다. 본 태스크는 Prisma 설정 및 초기 마이그레이션까지만 포함하며, 개별 모델 정의는 별도 태스크(B-001 ~ B-010)에서 수행한다.
 
 ## :link: References (Spec & Context)
 > :bulb: AI Agent & Dev Note: 작업 시작 전 아래 문서를 반드시 먼저 Read/Evaluate 할 것.
@@ -142,7 +142,7 @@ source_task_id: A-003
 ## :construction: Dependencies & Blockers
 - **Depends on:** FR-001 (A-001: Next.js 프로젝트 생성 완료)
 - **Blocks:**
-  - B-001~B-010 (전체 DB 스키마 모델 정의 — Prisma 설정이 선행 조건)
+  - B-001 ~ B-010 (전체 DB 스키마 모델 정의 — Prisma 설정이 선행 조건)
   - D-005 (Seed 데이터 생성 — Prisma 마이그레이션 완료 필요)
   - V-001 (배포 시 PostgreSQL 전환 — datasource 토글)
 

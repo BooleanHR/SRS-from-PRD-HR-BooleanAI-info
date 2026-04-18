@@ -13,12 +13,12 @@ source_task_id: B-008
 - **기능명:** [FR-014] Notification 모델 정의
 - **Epic:** DB Schema
 - **목적:** 불일치 알림의 DRAFT 생성 → 선택 발송 → 발송 결과 기록까지의 전체 생애주기를 저장하는 **Notification 모델**을 정의한다. v1.1에서 **선택적 발송** 관련 필드(discrepancyItems, requiredDocuments, customMessage, isSelected)가 대폭 추가되었다.
-- **설계 원칙:** SRS §3.8 (L634~654). Applicant + VerificationJob 양방향 FK. ADR-009 선택 발송.
+- **설계 원칙:** SRS §3.8 (L634 ~ 654). Applicant + VerificationJob 양방향 FK. ADR-009 선택 발송.
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — Notification`](../SRS-HR-AI-Verification-v1.1.md)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.5 ADR-009`](../SRS-HR-AI-Verification-v1.1.md) — 선택 발송 원칙
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.13 REQ-FUNC-100~105`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.13 REQ-FUNC-100 ~ 105`](../SRS-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
 - [ ] **TB-1:** Notification 모델 추가

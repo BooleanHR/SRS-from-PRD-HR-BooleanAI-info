@@ -11,11 +11,11 @@ source_task_id: UI-022
 - **기능명:** [FR-070] Approve/Reject buttons + reject reason Dialog UI
 - **Epic:** HITL Approval
 - **목적:** shadcn/ui Dialog + Textarea for reject reason. Empty reason disables reject button.
-- **설계 원칙:** SRS REQ-FUNC-030~032
+- **설계 원칙:** SRS REQ-FUNC-030 ~ 032
 - **복잡도:** M
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-030~032`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-030 ~ 032`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic K`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: UI-022
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-030~032에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-030 ~ 032에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

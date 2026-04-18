@@ -111,7 +111,7 @@ source_task_id: C-001
 
 ## :construction: Dependencies & Blockers
 - **Depends on:** FR-007 (B-001: Enum 정의)
-- **Blocks:** C-002~C-009 (API DTO 정의), D-001 (Agency API 클라이언트)
+- **Blocks:** C-002 ~ C-009 (API DTO 정의), D-001 (Agency API 클라이언트)
 
 ---
 *Document Version: v0.1 (초안) | Source: TASK-LIST C-001 | SRS: v1.1*

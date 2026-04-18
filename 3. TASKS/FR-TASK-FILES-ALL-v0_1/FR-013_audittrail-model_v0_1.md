@@ -13,13 +13,13 @@ source_task_id: B-007
 - **기능명:** [FR-013] AuditTrail 모델 정의
 - **Epic:** DB Schema
 - **목적:** 검증 처리 이력의 불변 감사 기록을 저장하는 **AuditTrail 모델**을 정의한다. VerificationJob과 **1:1 관계** (jobId @unique). v1.1에서 **API 응답 스냅샷**(agencyResponseSnapshot, agencyResponseCapturedAt) 필드가 추가되어 병렬 캡처 MVP 대안을 지원한다.
-- **설계 원칙:** SRS §3.8 (L616~632). ADR-006 논리적 불변성 (is_immutable=true). ADR-008 병렬 캡처 MVP 대안.
+- **설계 원칙:** SRS §3.8 (L616 ~ 632). ADR-006 논리적 불변성 (is_immutable=true). ADR-008 병렬 캡처 MVP 대안.
 
 ## :link: References (Spec & Context)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema — AuditTrail`](../SRS-HR-AI-Verification-v1.1.md)
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.5 ADR-006`](../SRS-HR-AI-Verification-v1.1.md) — 논리적 불변성
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.5 ADR-008`](../SRS-HR-AI-Verification-v1.1.md) — 병렬 캡처 MVP 대안
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.13 REQ-FUNC-020~024`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.13 REQ-FUNC-020 ~ 024`](../SRS-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
 - [ ] **TB-1:** AuditTrail 모델 추가

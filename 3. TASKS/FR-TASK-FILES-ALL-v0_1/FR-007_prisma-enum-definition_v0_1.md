@@ -18,7 +18,7 @@ source_task_id: B-001
 ## :link: References (Spec & Context)
 > :bulb: AI Agent & Dev Note: 작업 시작 전 아래 문서를 반드시 먼저 Read/Evaluate 할 것.
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 Prisma Schema`](../SRS-HR-AI-Verification-v1.1.md)
-  - Enum 정의 (L673~688): UserRole, UserStatus, BatchStatus, DocType, CheckLayer, ReportType, JobStatus
+  - Enum 정의 (L673 ~ 688): UserRole, UserStatus, BatchStatus, DocType, CheckLayer, ReportType, JobStatus
 - SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#§3.8 ERD`](../SRS-HR-AI-Verification-v1.1.md)
   - 각 모델에서 참조하는 Enum 관계
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic B`](./TASK-LIST-HR-AI-Verification-v1.1.md)
@@ -93,12 +93,12 @@ source_task_id: B-001
 - [ ] 7개 Enum(UserRole, UserStatus, BatchStatus, DocType, CheckLayer, ReportType, JobStatus)이 `schema.prisma`에 정의되어 있는가?
 - [ ] `npx prisma generate`가 에러 없이 완료되는가?
 - [ ] TypeScript에서 Enum 타입을 import하여 사용 가능한가?
-- [ ] JobStatus에 8개 값(PENDING~REJECTED)이 모두 포함되어 있는가?
+- [ ] JobStatus에 8개 값(PENDING ~ REJECTED)이 모두 포함되어 있는가?
 
 ## :construction: Dependencies & Blockers
 - **Depends on:** FR-003 (A-003: Prisma 초기 설정 완료)
 - **Blocks:**
-  - B-002~B-009 (전체 모델 정의 — Enum 참조)
+  - B-002 ~ B-009 (전체 모델 정의 — Enum 참조)
   - C-001 (TypeScript 공통 타입 정의 — Enum 기반)
 
 ---

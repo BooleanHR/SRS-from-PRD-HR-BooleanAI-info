@@ -11,11 +11,11 @@ source_task_id: T-020
 - **기능명:** [FR-110] Excel generation test
 - **Epic:** Test
 - **목적:** Tests 10-case batch -> 8 columns exist, multi-verification criteria accurate, mock_used notes shown, within 5 seconds.
-- **설계 원칙:** SRS REQ-FUNC-070~073
+- **설계 원칙:** SRS REQ-FUNC-070 ~ 073
 - **복잡도:** M
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-070~073`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-070 ~ 073`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic T`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: T-020
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-070~073에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-070 ~ 073에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

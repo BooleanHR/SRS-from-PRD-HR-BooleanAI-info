@@ -11,11 +11,11 @@ source_task_id: T-006
 - **기능명:** [FR-096] File auto-naming test
 - **Epic:** Test
 - **목적:** Tests exam number present/absent naming, duplicate document suffix (_2, _3).
-- **설계 원칙:** SRS REQ-FUNC-090~092
+- **설계 원칙:** SRS REQ-FUNC-090 ~ 092
 - **복잡도:** L
 
 ## :link: References (Spec & Context)
-- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-090~092`](../SRS-HR-AI-Verification-v1.1.md)
+- SRS 문서: [`SRS-HR-AI-Verification-v1.1.md#REQ-FUNC-090 ~ 092`](../SRS-HR-AI-Verification-v1.1.md)
 - TASK-LIST: [`TASK-LIST-HR-AI-Verification-v1.1.md#Epic T`](./TASK-LIST-HR-AI-Verification-v1.1.md)
 
 ## :white_check_mark: Task Breakdown (실행 계획)
@@ -24,7 +24,7 @@ source_task_id: T-006
 - [ ] **TB-3:** 동작 검증 및 테스트
 
 ## :test_tube: Acceptance Criteria (BDD/GWT)
-- SRS REQ-FUNC-090~092에 명시된 AC(GWT) 기반 검증
+- SRS REQ-FUNC-090 ~ 092에 명시된 AC(GWT) 기반 검증
 
 ## :gear: Technical & Non-Functional Constraints
 - SRS Tech Stack Constraints (C-TEC) 준수

@@ -12,7 +12,7 @@ source_task_id: B-010
 ## :dart: Summary
 - **기능명:** [FR-016] Prisma DB 마이그레이션 실행
 - **Epic:** DB Schema
-- **목적:** FR-007~FR-015에서 정의한 **8개 모델과 7개 Enum**에 대해 Prisma 마이그레이션을 실행하여 실제 데이터베이스 테이블을 생성한다. 로컬 SQLite에서 먼저 검증하고, 배포 시 Supabase PostgreSQL로 전환한다.
+- **목적:** FR-007 ~ FR-015에서 정의한 **8개 모델과 7개 Enum**에 대해 Prisma 마이그레이션을 실행하여 실제 데이터베이스 테이블을 생성한다. 로컬 SQLite에서 먼저 검증하고, 배포 시 Supabase PostgreSQL로 전환한다.
 - **설계 원칙:** SRS §2.1 C-TEC-003 — SQLite(로컬) → PostgreSQL(배포) 듀얼 전략.
 
 ## :link: References (Spec & Context)
@@ -89,7 +89,7 @@ source_task_id: B-010
 - [ ] `npm run build` 에러 0건
 
 ## :construction: Dependencies & Blockers
-- **Depends on:** FR-007~FR-015 (B-001~B-009: 전체 모델 정의)
+- **Depends on:** FR-007 ~ FR-015 (B-001 ~ B-009: 전체 모델 정의)
 - **Blocks:**
   - D-005 (Seed 데이터 생성)
   - E-001 (Supabase Auth 설정)
